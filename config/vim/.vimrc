@@ -1,35 +1,32 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
+set ruler
+set number
+set cursorline
+" Set font for vim
+set guifont=Inconsolata\ for\ Powerline:h15
+let g:airline_powerline_fonts = 1
 let g:Powerline_symbols = 'fancy'
 set laststatus=2
+let g:airline#extensions#tabline#enabled = 1
+set encoding=utf-8
 set t_Co=256
+set fillchars+=stl:\ ,stlnc:\
+set term=xterm-256color
+set termencoding=utf-8
+
+call pathogen#infect()
+syntax on
+
+filetype plugin indent on
+syntax enable
+" Solarized stuff
+let g:solarized_termtrans = 1
+let g:solarized_teamcolors = 256
+set background=dark
+colorscheme solarized
+"filetype off        
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-set rtp+=~/.fzf
-"call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-"Plugin 'VundleVim/Vundle.vim'
-"Plugin 'vim-airline/vim-airline'
-"Plugin 'vim-airline/vim-airline-themes'
-
-" All of your Plugins must be added before the following line
-"call vundle#end()            " required
-"filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
-"
+set rtp+=/usr/local/bin/fzf
+" Plugin
 call plug#begin('~/.vim/plugged')
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
