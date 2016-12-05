@@ -15,6 +15,8 @@ export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 # ZSH_THEME="dpoggi"
 ZSH_THEME="pygmalion"
 #ZSH_THEME="agnoster"
+# gshuf -n 1 ~/cowsay-quote/quote.txt | cowsay
+fortune | cowsay | lolcat
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"

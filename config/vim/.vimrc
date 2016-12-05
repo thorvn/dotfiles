@@ -13,6 +13,13 @@ set fillchars+=stl:\ ,stlnc:\
 set term=xterm-256color
 set termencoding=utf-8
 
+set tabstop=4
+" Key Bingding
+nore ; :
+nore \ ;
+inore jk <Esc>
+inore kj <Esc>
+
 call pathogen#infect()
 syntax on
 
@@ -23,7 +30,7 @@ let g:solarized_termtrans = 1
 let g:solarized_teamcolors = 256
 set background=dark
 colorscheme solarized
-"filetype off        
+"filetype off
 " set the runtime path to include Vundle and initialize
 set rtp+=/usr/local/bin/fzf
 " Plugin

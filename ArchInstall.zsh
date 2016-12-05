@@ -13,6 +13,9 @@ cp config/vim/.vimrc ~/.vimrc
 ## Install Ruby
 sudo pacman -S ruby
 
+# Install lolcat
+gem install lolcat
+
 ## Install Linux brew
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)"
 ## Update Brew

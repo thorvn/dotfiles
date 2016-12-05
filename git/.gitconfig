@@ -1,0 +1,22 @@
+[init]
+	templatedir =  ~
+
+[push]
+	default = current
+[color]
+	ui = auto
+[user]
+	email = vo.tho@mulodo.com
+	username = vo-tho-mulodo
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[core]
+	excludesfile = /Users/admin/.gitignore_global
+[commit]
+	template = ~/.gitmessage
+[rebase]
+	autosquash = true
