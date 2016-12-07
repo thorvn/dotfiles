@@ -22,8 +22,8 @@ brew install zsh-completions
 brew install nodejs
 
 
-cask 'dropbox'
-cask 'google-chrome'
+brew cask install dropbox
+brew cask install google-chrome
 
 # Remove outdated versions from the cellar.
 brew cleanup
