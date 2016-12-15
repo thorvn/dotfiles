@@ -1,6 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$PATH
-
+export PATH=$HOME/bin:/usr/local/bin:$PATH 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 export TERM='xterm-256color'
@@ -96,3 +95,4 @@ alias tmux="tmux -u"
 LS_COLORS=$LS_COLORS:'di=0;35:ln=31' ; export LS_COLORS
 export EDITOR='nvim'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+setopt no_share_history
