@@ -12,7 +12,6 @@ brew install fortune
 brew install figlet
 brew install git
 brew install git-flow
-brew install mackup
 brew install p7zip
 brew install tmux
 brew install tree
@@ -22,7 +21,6 @@ brew install zsh-completions
 brew install nodejs
 
 
-brew cask install dropbox
 brew cask install google-chrome
 
 # Remove outdated versions from the cellar.
