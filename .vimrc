@@ -13,12 +13,17 @@ set fillchars+=stl:\ ,stlnc:\
 set term=xterm-256color
 set termencoding=utf-8
 
-set tabstop=4
+set tabstop=2
 " Key Bingding
 nore ; :
 nore \ ;
 inore jk <Esc>
 inore kj <Esc>
+
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
 
 call pathogen#infect()
 syntax on
