@@ -10,16 +10,34 @@ git clone git://github.com/altercation/vim-colors-solarized.git ~/.vim/bundle/vi
 
 cp config/vim/.vimrc ~/.vimrc
 
+# Install python
+yaourt -S --noconfirm python
+pacman -S --noconfirm python-pip
+
+# Install neovim
+sudo pip3 install neovim
+
 ## Install Ruby
-sudo pacman -S ruby
+sudo pacman -S --noconfirm ruby
+
+## Install Rails
+gem install bundler --no-rdoc --no-ri
+gem install rails --no-rdoc --no-ri
+
 
 # Install lolcat
 gem install lolcat
+sudo pacman -S --noconfirm fortune-mod
+sudo pacman -S --noconfirm cowsay
 
+sudo pacman -S --noconfirm emacs httpie curl
+git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+
+yaourt -S --noconfirm tree
 ## Install Linux brew
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)"
+#ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)"
 ## Update Brew
-cd "$(brew --repo)" && git fetch && git reset --hard origin/master && brew update
+#cd "$(brew --repo)" && git fetch && git reset --hard origin/master && brew update
 ## Install Nodejs
 sudo yaourt -S --noconfirm nodejs
 

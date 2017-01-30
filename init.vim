@@ -1,4 +1,197 @@
-" Keybindings
+" ----- General settings -----
+  " base
+  set nocompatible                      " vim, not vi
+  syntax on                             " syntax highlighting
+  filetype plugin indent on             " try to recognise filetype and load plugins and indent files
+
+  " interface
+  set background=dark                   " tell vim what the background color looks like
+  set colorcolumn=100                   " show a column at 100 chars
+  set cursorline                        " highlight current line
+  set laststatus=2                      " enable airline on open
+  set noshowmode                        " don't show mode as airline already does
+  set number                            " show line numbers
+  set relativenumber                    " show relative line numbers
+  set ruler                             " show current position at bottom
+  set scrolloff=5                       " keep at least 5 lines above/below
+  set shortmess+=I                      " disable welcome screen
+  set showcmd                           " show any commands
+  set sidescroll=1                      " smoother horizontal scrolling
+  set sidescrolloff=5                   " keep at least 5 lines left/right
+  set splitbelow                        " create new splits below
+  set splitright                        " create new splits to the right
+  set termguicolors                     " enable true colors
+  set wildmenu                          " enable wildmenu
+  set wildmode=longest:full,full        " configure wildmenu
+
+  " whitespace
+  set expandtab                         " use tabs instead of spaces
+  set nojoinspaces                      " use one space, not two, after punctuation
+  set shiftround                        " shift to next tabstop
+  set shiftwidth=2                      " amount of space used for indentation
+  set softtabstop=2                     " appearance of tabs
+  set tabstop=2                         " use two spaces for tabs
+
+  " folding
+  set foldmethod=indent                 " fold based on markers
+  set nofoldenable                      " disable folds until `zc` or `zM` etc is used
+
+  " text appearance
+  set list                              " show invisible characters
+  set listchars=tab:>·,trail:·,nbsp:¬   " but only show useful chaaracters
+  set nowrap                            " disable line wrapping
+
+  " interaction
+  set backspace=2                       " make backspace work like most other apps
+  set mouse=a                           " enable mouse support
+  set mousehide                         " hide the mouse cursor while typing
+  set whichwrap=b,s,h,l,<,>,[,]         " backspace and cursor keys wrap too
+  set esckeys                           " allow cursor keys in insert mode
+
+  " searching
+  set hlsearch                          " highlight search matches
+  set ignorecase                        " set case insensitive searching
+  set incsearch                         " find as you type search
+  set smartcase                         " case sensitive searching when not all lowercase
+
+  " background processes
+  set autoread                          " update file when changed outside of vim
+  set autoindent                        " copy indentation from the previous line for new line
+  set clipboard=unnamed                 " use native clipboard
+  set history=200                       " store last 200 commands as history
+  set lazyredraw                        " no unneeded redraws
+  set nobackup                          " don't save backups
+  set noerrorbells                      " no error bells please
+  set noswapfile                        " no swapfiles
+  set nowritebackup                     " don't save a backup while editing
+  set ttyfast                           " indicates a fast terminal connection
+  set undodir=~/.config/nvim/undodir    " set undofile location
+  set undofile                          " maintain undo history between sessions
+  set undolevels=1000                   " store 1000 undos
+
+  " character encoding
+  if !&readonly
+    set fileencoding=utf-8
+  endif
+
+" Plugins
+  call plug#begin()
+
+  " syntax related
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  Plug 'alvan/vim-closetag'
+  Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+  Plug 'editorconfig/editorconfig-vim'
+  Plug 'jiangmiao/auto-pairs'
+  Plug 'matze/vim-move'
+  Plug 'othree/javascript-libraries-syntax.vim'
+  Plug 'sheerun/vim-polyglot'
+  Plug 'valloric/matchtagalways'
+
+  " ui related
+  Plug 'Xuyuanp/nerdtree-git-plugin'
+  Plug 'airblade/vim-gitgutter'
+  Plug 'christoomey/vim-tmux-navigator'
+  Plug 'ctrlpvim/ctrlp.vim'
+  Plug 'dietsche/vim-lastplace'
+  Plug 'easymotion/vim-easymotion'
+  Plug 'morhetz/gruvbox'
+  Plug 'scrooloose/nerdtree'
+  Plug 'vim-airline/vim-airline'
+  Plug 'wesQ3/vim-windowswap'
+  Plug 'yggdroot/indentline'
+  Plug 'yssl/QFEnter'
+
+  " background utils
+  Plug 'ConradIrwin/vim-bracketed-paste'
+  Plug 'jaawerth/nrun.vim'
+  Plug 'neomake/neomake'
+  Plug 'tmux-plugins/vim-tmux-focus-events'
+
+  " El popo
+  Plug 'tpope/vim-commentary'
+  Plug 'tpope/vim-fugitive'
+  Plug 'tpope/vim-repeat'
+  Plug 'tpope/vim-surround'
+
+  " add plugins to &runtimepath
+  call plug#end()
+
+" Plugin settings
+  " airline
+  let g:airline_powerline_fonts = 1
+  let g:airline_theme='gruvbox'
+
+  " close-tag
+  let g:closetag_filenames = "*.html,*.jsx"
+
+  " ctrlp
+  let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+  let g:ctrlp_show_hidden = 1
+  let g:ctrlp_prompt_mappings = {
+  \ 'AcceptSelection("h")': ['<c-s>'],
+  \ 'AcceptSelection("v")': ['<c-v>'],
+  \  }
+
+  " deoplete
+  set completeopt=longest,menuone
+  let g:deoplete#auto_completion_start_length = 1
+  let g:deoplete#enable_at_startup = 1
+  let g:deoplete#max_list = 5
+  let g:deoplete#omni#functions = {}
+  let g:deoplete#sources = {}
+  let g:deoplete#omni#functions.javascript = ['tern#Complete']
+  let g:deoplete#sources['javascript.jsx'] = ['buffer', 'ternjs']
+
+  " easymotion
+  let g:EasyMotion_smartcase = 1
+  let g:EasyMotion_keys='qwertyuiopasdfghjklzxcvbnm'
+
+  " editorconfig
+  let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
+
+  " gitgutter
+  let g:gitgutter_sign_column_always = 1
+  let g:gitgutter_sign_added = '++'
+  let g:gitgutter_sign_modified = '~~'
+  let g:gitgutter_sign_removed = '__'
+  let g:gitgutter_sign_removed_first_line = '¯¯'
+  let g:gitgutter_sign_modified_removed = '~_'
+
+  " vim-markdown
+  let g:vim_markdown_conceal = 0
+
+  " matchtagalways
+  let g:mta_filetypes = {
+    \ 'javascript.jsx': 1,
+    \ 'html' : 1,
+    \ 'xml' : 1,
+    \ }
+
+  " neomake
+  let g:neomake_javascript_enabled_makers = ['eslint']
+  let g:neomake_jsx_enabled_makers = ['eslint']
+  let g:neomake_error_sign = {'text': 'xx'}
+  let g:neomake_warning_sign = {'text': '!!'}
+
+  " nerdtree
+  let NERDTreeMapActivateNode='l'
+  let NERDTreeMapCloseDir='h'
+  let NERDTreeMapOpenSplit='<c-s>'
+  let NERDTreeMapOpenVSplit='<c-v>'
+
+  " ternjs
+  let g:tern_show_signature_in_pum = 1
+  let g:tern#filetypes = [
+    \ 'jsx',
+    \ 'javascript.jsx',
+    \ ]
+
+  " theme settings
+  let g:gruvbox_italic = 1
+colorscheme gruvbox
+
+" ----- Keybindings -----
 nore ; :
 nore \ ;
 noremap ` ^
@@ -9,150 +202,47 @@ noremap <DOWN> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
 
+" set leader to space
+let mapleader = " "
 
-" vim-plug autoconfig if not already installed
-if empty(glob('~/.config/nvim/autoload/plug.vim'))
-  silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall | nested source $MYVIMRC
+" keep selection after indent
+vnoremap < <gv
+vnoremap > >gv
+
+" prevent entering ex mode accidentally
+nnoremap Q <Nop><Paste>
+
+" sort
+vnoremap <leader>s :sort<CR>
+
+" move through deoplete suggestions with tab
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+
+" Autocommands
+  if has("autocmd")
+
+    " disable comment continuation
+    autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
+    " set neomake's eslint path to the local eslint, and enable it as a maker
+    autocmd BufEnter *.js,*.jsx let b:neomake_javascript_eslint_exe = nrun#Which('eslint')
+    autocmd! BufEnter,BufWritePost * Neomake
+
+    " better syntax highlighting
+    autocmd BufNewFile,BufRead *eslintrc,*babelrc setlocal syntax=json
+
+  endif
+
+" Searching
+  if executable('ag')
+
+    " use ag over grep
+    set grepprg=ag\ --nogroup\ --nocolor
+
+    " define Ag command
+    command! -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+
+    " bind \ to grep shortcut
+    nnoremap \ :Ag<SPACE>
+
 endif
-" startup for vim-plug
-call plug#begin('~/.config/nvim/plugged')
-" Completions and snippets
-Plug 'jiangmiao/auto-pairs'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'zchee/deoplete-jedi', { 'for': 'python' }
-Plug 'Shougo/neco-vim', { 'for': 'vim' }
-Plug 'Shougo/neosnippet' | Plug 'Shougo/neosnippet-snippets'
-" Helpers
-Plug 'Shougo/unite.vim'
-Plug 'Shougo/vimproc.vim', { 'do': 'make' }
-Plug 'haya14busa/incsearch.vim'
-Plug 'tpope/vim-surround'
-Plug 'matchit.zip'
-Plug 'easymotion/vim-easymotion'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-Plug 'kassio/neoterm'
-Plug 'edkolev/promptline.vim'
-Plug 'xolox/vim-misc' | Plug 'xolox/vim-session'
-" IDE
-Plug 'scrooloose/nerdtree', { 'on':  ['NERDTreeToggle', 'NERDTree'] }
-Plug 'neomake/neomake'
-Plug 'Shougo/unite.vim'
-Plug 'tpope/vim-fugitive'
-Plug 'gregsexton/gitv'
-Plug 'gitignore'
-Plug 'majutsushi/tagbar'
-Plug 'indentpython.vim'
-Plug 'tpope/vim-vividchalk'
-Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
-Plug 'tmhedberg/SimpylFold'
-Plug 'Konfekt/FastFold'
-Plug 'airblade/vim-gitgutter'
-Plug 'miyakogi/seiya.vim'
-" Syntax helpers
-Plug 'pearofducks/ansible-vim', { 'for': 'ansible' }
-Plug 'freitass/todo.txt-vim', { 'for': 'todo.txt' }
-call plug#end()
-let g:python_host_prog = '/usr/local/bin/python'
-let g:python2_host_prog = '/usr/local/bin/python2'
-let g:python3_host_prog = '/usr/local/bin/python3'
-set clipboard+=unnamedplus
-set completeopt-=preview
-set noshowmode
-set lazyredraw
-set hidden
-set ruler
-set noswapfile
-set ignorecase
-set smartcase
-set magic
-set showmatch
-set nobackup
-set nowb
-set noerrorbells
-set expandtab
-set updatetime=250
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
-set number
-set relativenumber
-set numberwidth=2
-set fileformat=unix
-set whichwrap+=<,>,h,l
-let mapleader = "\<Space>"
-" wildignoresettings
-set wildignore+=.git,*.swp,*pyc,*pyo,*.png,*.jpg,*.gif,*.ai,*.jpeg,*.psd,*.jar,*.zip,*.gem,log/**,tmp/**,coverage/**,rdoc/**,output_*,*.xpi,doc/**
-" python special settings
-au BufNewFile,BufRead *.py set
-    \ tabstop=2
-    \ softtabstop=4
-    \ shiftwidth=4
-    \ textwidth=79
-nnoremap <silent> <A-right> :bn<CR>
-nnoremap <silent> <A-left> :bp<CR>
-" neovim terminal
-tnoremap <Esc> <C-\><C-n>
-" conceal markers
-if has('conceal')
-  set conceallevel=2
-endif
-" NERDTree things
-let NERDTreeWinPos='right'
-let NERDTreeQuitOnOpen=1
-let NERDTreeMinimalUI=1
-let NERDTreeRespectWildIgnore=1
-map <C-f> :NERDTreeToggle<CR>
-" incsearch.vim
-let g:incsearch#auto_nohlsearch = 1
-set hlsearch
-map /  <Plug>(incsearch-forward)
-map ?  <Plug>(incsearch-backward)
-map g/ <Plug>(incsearch-stay)
-map n  <Plug>(incsearch-nohl-n)
-map N  <Plug>(incsearch-nohl-N)
-map *  <Plug>(incsearch-nohl-*)
-map #  <Plug>(incsearch-nohl-#)
-map g* <Plug>(incsearch-nohl-g*)
-map g# <Plug>(incsearch-nohl-g#)
-" TagBar
-nmap <C-t> :TagbarToggle<CR>
-" vim-airline settings
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme = 'dark'
-let g:airline_powerline_fonts = 1
-" themes and colors
-let NVIM_TUI_ENABLE_CURSOR_SHAPE=1
-set termguicolors
-set background=dark
-"colorscheme solarized
-let g:seiya_auto_enable=1
-let g:seiya_target_groups = ['guibg']
-" unite vim
-let g:unite_source_grep_command = 'ack-grep'
-let g:unite_source_grep_default_opts ='-i --no-heading --no-color -k -H'
-let g:unite_source_grep_recursive_opt = ''
-" fzf.vim
-nnoremap <C-p> :Files<cr>
-" session management
-let g:session_autosave = 'no'
-" deoplete + neosnippet + autopairs changes
-let g:AutoPairsMapCR=0
-let g:deoplete#auto_complete_start_length = 1
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#enable_smart_case = 1
-imap <expr><TAB> pumvisible() ? "\<C-n>" : (neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>")
-imap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
-imap <expr><CR> pumvisible() ? deoplete#mappings#close_popup() : "\<CR>\<Plug>AutoPairsReturn"
-augroup neovim
-  autocmd!
-  autocmd FileType vimfiler set nonumber | set norelativenumber
-  autocmd Filetype * if &ft!='vimfiler' | set relativenumber | set number | endif
-  autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
-  autocmd StdinReadPre * let s:std_in=1
-  autocmd BufWritePre * %s/\s\+$//e
-  autocmd BufWritePost * Neomake
-  autocmd BufWritePost $MYVIMRC nested source $MYVIMRC
-augroup END

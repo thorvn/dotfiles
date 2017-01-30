@@ -1,11 +1,13 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$PATH 
+export PATH=$HOME/bin:/usr/local/bin:$PATH
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 export TERM='xterm-256color'
 export PATH="$HOME/.linuxbrew/bin:$PATH"
 export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
 export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
+export LANG="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
 
 #Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -16,6 +18,12 @@ ZSH_THEME="pygmalion"
 #ZSH_THEME="agnoster"
 # gshuf -n 1 ~/cowsay-quote/quote.txt | cowsay
 fortune | cowsay | lolcat
+
+
+# load aliases
+[[ -f ~/.aliases ]] && source ~/.aliases
+[[ -f ~/.functions ]] && source ~/.functions
+
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -91,8 +99,8 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias tmux="tmux -u"
-LS_COLORS=$LS_COLORS:'di=0;35:ln=31' ; export LS_COLORS
+LS_COLORS=$LS_COLORS:'di=0;35:ln=31' ; 
+export LS_COLORS
 export EDITOR='nvim'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 setopt no_share_history

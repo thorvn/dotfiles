@@ -1,0 +1,9 @@
+alias dl="cd ~/Downloads"
+alias dt="cd ~/Desktop"
+alias tls="tmux ls"
+alias tkill="tmux kill-session -t"
+alias c="clear"
+alias v="nvim"
+alias vim="nvim"
+# use the correct term for ssh
+alias ssh="TERM=xterm-256color ssh"
