@@ -112,8 +112,12 @@
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-repeat'
+
   Plug 'tpope/vim-surround'
 
+  "Helpers
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+  Plug 'junegunn/fzf.vim'
   " add plugins to &runtimepath
   call plug#end()
 
@@ -142,6 +146,8 @@
   let g:deoplete#sources = {}
   let g:deoplete#omni#functions.javascript = ['tern#Complete']
   let g:deoplete#sources['javascript.jsx'] = ['buffer', 'ternjs']
+  let g:deoplete#enable_smart_case = 1
+  let g:AutoPairsMapCR=0
 
   " easymotion
   let g:EasyMotion_smartcase = 1
@@ -180,6 +186,12 @@
   let NERDTreeMapOpenSplit='<c-s>'
   let NERDTreeMapOpenVSplit='<c-v>'
 
+  let NERDTreeWinPos='right'
+  let NERDTreeQuitOnOpen=1
+  let NERDTreeMinimalUI=1
+  let NERDTreeRespectWildIgnore=1
+  map <C-f> :NERDTreeToggle<CR>
+  
   " ternjs
   let g:tern_show_signature_in_pum = 1
   let g:tern#filetypes = [
@@ -203,8 +215,10 @@ noremap <Left> <NOP>
 noremap <Right> <NOP>
 
 " set leader to space
-let mapleader = " "
 
+let mapleader = "\<Space>"
+
+set wildignore+=.git,*.swp,*pyc,*pyo,*.png,*.jpg,*.gif,*.ai,*.jpeg,*.psd,*.jar,*.zip,*.gem,log/**,tmp/**,coverage/**,rdoc/**,output_*,*.xpi,doc/**
 " keep selection after indent
 vnoremap < <gv
 vnoremap > >gv
@@ -217,6 +231,9 @@ vnoremap <leader>s :sort<CR>
 
 " move through deoplete suggestions with tab
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+
+" fzf.vim 
+nnoremap <C-p> :Files<cr>
 
 " Autocommands
   if has("autocmd")

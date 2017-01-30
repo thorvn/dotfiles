@@ -39,8 +39,7 @@ yaourt -S --noconfirm tree
 ## Update Brew
 #cd "$(brew --repo)" && git fetch && git reset --hard origin/master && brew update
 ## Install Nodejs
-sudo yaourt -S --noconfirm nodejs
-
+yaourt -S --noconfirm nodejs eslint
 
 ## Install Oh My ZSH plugin
 git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
