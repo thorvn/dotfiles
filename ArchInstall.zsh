@@ -43,3 +43,14 @@ yaourt -S --noconfirm nodejs eslint
 
 ## Install Oh My ZSH plugin
 git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
+
+## Install tmux
+sudo pacman -S --noconfirm tmux
+
+# ------ Install config ----- #
+cp arch/.Xmodmap ~
+cp arch/.xinitrc ~
+cp .tmux.conf ~
+cp .aliases ~
+cp .functions ~
+
