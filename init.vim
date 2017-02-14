@@ -230,10 +230,12 @@ nnoremap Q <Nop><Paste>
 vnoremap <leader>s :sort<CR>
 
 " move through deoplete suggestions with tab
-imap <expr><TAB> pumvisible() ? "\<C-n>" : (neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>")
-imap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
-imap <expr><CR> pumvisible() ? deoplete#mappings#close_popup() : "\<CR>"
-
+"imap <expr><TAB> pumvisible() ? "\<C-n>" : (neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>")
+"imap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
+"imap <expr><CR> pumvisible() ? deoplete#mappings#close_popup() : "\<CR>"
+let g:user_emmet_expandabbr_key='<Tab>'
+imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
+execute pathogen#infect()
 " fzf.vim 
 " nnoremap <C-p> :Files<cr>
 let g:fzf_action = {
