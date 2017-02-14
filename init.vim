@@ -209,8 +209,8 @@ nore \ ;
 noremap ` ^
 inore jj <Esc>
 
-noremap <Up> <NOP>
-noremap <DOWN> <NOP>
+noremap <Up> :m-2<CR>
+noremap <DOWN> :m+1<CR>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
 
@@ -284,6 +284,6 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
     command! -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
 
     " bind \ to grep shortcut
-    nnoremap \ :Ag<SPACE>
+   " nnoremap \ :Ag<SPACE>
 
 endif
