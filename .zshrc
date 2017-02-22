@@ -1,30 +1,25 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$PATH
-# Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
-export TERM='xterm-256color'
-export PATH="$HOME/.linuxbrew/bin:$PATH"
-export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
-export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
-export LANG="en_US.UTF-8"
-export LC_ALL="en_US.UTF-8"
+export PATH=$HOME/bin:/usr/local/bin:$HOME/apache-maven/bin:/usr/local/mysql/bin:/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH
+export PATH=$HOME/.rvm/bin:$PATH
+export PATH=$HOME/.rvm/gems/ruby-2.3.3/bin:$PATH
 
-#Set name of the theme to load. Optionally, if you set this to "random"
+# Path to your oh-my-zsh installation.
+export ZSH=/Users/admin/.oh-my-zsh
+export GOPATH=~/go-workspace
+#export JAVA_HOME="$(/usr/libexec/java_home)"
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.7.0_80.jdk/Contents/Home"
+
+# Setting fzf
+export FZF_CTRL_T_OPTS="--select-1 --exit-0"
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+# Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-# ZSH_THEME="steeef"
-# ZSH_THEME="dpoggi"
-ZSH_THEME="pygmalion"
-#ZSH_THEME="agnoster"
+# ZSH_THEME="robbyrussell"
+ZSH_THEME="dpoggi"
 # gshuf -n 1 ~/cowsay-quote/quote.txt | cowsay
-fortune | cowsay | lolcat
-
-
-# load aliases
-[[ -f ~/.aliases ]] && source ~/.aliases
-[[ -f ~/.functions ]] && source ~/.functions
-
-
+# fortune | cowsay -f daemon | lolcat
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -67,16 +62,21 @@ fortune | cowsay | lolcat
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git archlinux brew vi-mode web-search npm pip sudo tig)
+ plugins=(git zsh-autosuggestions emoji)
 
 source $ZSH/oh-my-zsh.sh
+source ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions/src/config.zsh
+
+# load aliases
+source ~/.aliases
 
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -84,12 +84,12 @@ source $ZSH/oh-my-zsh.sh
 # else
 #   export EDITOR='mvim'
 # fi
-
+export EDITOR='nvim'
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
 # ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
+# export SSH_KEY_PATH="~/.ssh/dsa_id"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -99,8 +99,23 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-LS_COLORS=$LS_COLORS:'di=0;35:ln=31' ; 
-export LS_COLORS
-export EDITOR='nvim'
+# My aliases
+alias gs="git status -s"
+alias c="clear"
+alias l.="ls -d .*"
+alias vim="nvim"
+alias gd="git difftool"
+## a quick way to get out of current directory
+alias ..='cd ..'
+alias 2.="cd ../.."
+alias 3.='cd ../../../'
+alias 4.='cd ../../../../'
+alias 5.='cd ../../../../..'
+alias emacs="/usr/local/bin/emacs --insecure"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-setopt no_share_history
+alias tmux="tmux -u"
+unsetopt share_history
+
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
