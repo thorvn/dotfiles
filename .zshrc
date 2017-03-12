@@ -1,18 +1,10 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$HOME/apache-maven/bin:/usr/local/mysql/bin:/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH
-export PATH=$HOME/.rvm/bin:$PATH
-export PATH=$HOME/.rvm/gems/ruby-2.3.3/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin::$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/admin/.oh-my-zsh
 export GOPATH=~/go-workspace
-#export JAVA_HOME="$(/usr/libexec/java_home)"
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.7.0_80.jdk/Contents/Home"
 
-# Setting fzf
-export FZF_CTRL_T_OPTS="--select-1 --exit-0"
-export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
@@ -62,7 +54,7 @@ ZSH_THEME="dpoggi"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
- plugins=(git zsh-autosuggestions emoji)
+ plugins=(git zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 source ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions/src/config.zsh
@@ -100,22 +92,6 @@ export EDITOR='nvim'
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 # My aliases
-alias gs="git status -s"
-alias c="clear"
-alias l.="ls -d .*"
-alias vim="nvim"
-alias gd="git difftool"
-## a quick way to get out of current directory
-alias ..='cd ..'
-alias 2.="cd ../.."
-alias 3.='cd ../../../'
-alias 4.='cd ../../../../'
-alias 5.='cd ../../../../..'
-alias emacs="/usr/local/bin/emacs --insecure"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-alias tmux="tmux -u"
 unsetopt share_history
 
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
