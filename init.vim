@@ -80,7 +80,7 @@
   " syntax related
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'alvan/vim-closetag'
-  Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+ " Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
   Plug 'editorconfig/editorconfig-vim'
   Plug 'jiangmiao/auto-pairs'
   Plug 'matze/vim-move'
@@ -100,7 +100,7 @@
   Plug 'vim-airline/vim-airline'
   Plug 'wesQ3/vim-windowswap'
   Plug 'yggdroot/indentline'
-  Plug 'yssl/QFEnter'
+ " Plug 'yssl/QFEnter'
 
   " background utils
   Plug 'ConradIrwin/vim-bracketed-paste'
@@ -116,11 +116,12 @@
   Plug 'tpope/vim-surround'
 
   "Helpers
-  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-  Plug 'junegunn/fzf.vim'
+  "Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+  "Plug 'junegunn/fzf.vim'
   " add plugins to &runtimepath
   call plug#end()
   filetype off 
+  execute pathogen#infect()
   set rtp+=~/.vim/bundle/Vundle.vim
   call vundle#begin()
   Plugin 'VundleVim/Vundle.vim'
@@ -223,7 +224,6 @@ noremap <Left> <NOP>
 noremap <Right> <NOP>
 
 " set leader to space
-
 let mapleader = " "
 
 set wildignore+=.git,*.swp,*pyc,*pyo,*.png,*.jpg,*.gif,*.ai,*.jpeg,*.psd,*.jar,*.zip,*.gem,log/**,tmp/**,coverage/**,rdoc/**,output_*,*.xpi,doc/**
