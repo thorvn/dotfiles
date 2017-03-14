@@ -109,7 +109,7 @@
   Plug 'tmux-plugins/vim-tmux-focus-events'
 
   " El popo
-  Plug 'tpope/vim-commentary'
+  Plug 'scrooloose/nerdcommenter'
   Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-repeat'
 
@@ -120,6 +120,13 @@
   Plug 'junegunn/fzf.vim'
   " add plugins to &runtimepath
   call plug#end()
+  filetype off 
+  set rtp+=~/.vim/bundle/Vundle.vim
+  call vundle#begin()
+  Plugin 'VundleVim/Vundle.vim'
+  Plugin 'terryma/vim-multiple-cursors'
+  call vundle#end()
+  filetype on
 
 " Plugin settings
   " airline
@@ -207,16 +214,17 @@ colorscheme gruvbox
 nore ; :
 nore \ ;
 noremap ` ^
-inore jj <Esc>
+inore jk <Esc>
+inore kj <Esc>
 
-noremap <Up> :m-2<CR>
-noremap <DOWN> :m+1<CR>
+noremap <Up> <NOP>
+noremap <DOWN> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
 
 " set leader to space
 
-let mapleader = "\<Space>"
+let mapleader = " "
 
 set wildignore+=.git,*.swp,*pyc,*pyo,*.png,*.jpg,*.gif,*.ai,*.jpeg,*.psd,*.jar,*.zip,*.gem,log/**,tmp/**,coverage/**,rdoc/**,output_*,*.xpi,doc/**
 " keep selection after indent
