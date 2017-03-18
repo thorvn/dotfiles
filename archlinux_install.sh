@@ -24,7 +24,7 @@ sudo systemctl disable dhcpcd.service
 sudo systemctl start NetworkManager
 sudo systemctl enable NetworkManager
 
-sudo pacman -S --noconfirm  httpie curl wget neovim firefox p7zip tmux  xfce4-screenshooter os-prober openssh 
+sudo pacman -S --noconfirm  httpie curl wget neovim firefox p7zip tmux  xfce4-screenshooter os-prober openssh nodejs
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 mkdir -p ~/.ssh
 
