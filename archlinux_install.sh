@@ -1,17 +1,39 @@
 #!/bin/bash
+
+#echo "
+#[archlinuxfr]
+#SigLevel = Never
+#Server = http://repo.archlinux.fr/$arch" >> /etc/pacman.conf 
+# sudo pacman -Sy --noconfirm yaourt
+
+
 #### Install Plug in Vim
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 #### Install Pathogen in Vim
-mkdir -p ~/.vim/autoload ~/.vim/bundle && \
-curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+#mkdir -p ~/.vim/autoload ~/.vim/bundle && \
+#curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+
+# Config network
+
+sudo pacman -S --noconfirm net-tools network-manager-applet
+sudo systemctl stop dhcpcd@ens33.service
+sudo systemctl disable dhcpcd@ens33.service
+sudo systemctl stop dhcpcd.service
+sudo systemctl disable dhcpcd.service
+sudo systemctl start NetworkManager
+sudo systemctl enable NetworkManager
+
+sudo pacman -S --noconfirm  httpie curl wget neovim firefox p7zip tmux  xfce4-screenshooter os-prober 
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+
+gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+\curl -sSL https://get.rvm.io | bash
 
 # Install python
-yaourt -S --noconfirm python
+pacman -S --noconfirm python
 pacman -S --noconfirm python-pip
 
-## Install Ruby
-sudo pacman -S --noconfirm ruby
 
 ## Install Rails
 gem install bundler --no-rdoc --no-ri
@@ -23,10 +45,9 @@ gem install rails --no-rdoc --no-ri
 #sudo pacman -S --noconfirm fortune-mod
 #sudo pacman -S --noconfirm cowsay
 
-#sudo pacman -S --noconfirm emacs httpie curl
 #git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 
-yaourt -S --noconfirm tree wget
+yaourt -S --noconfirm tree broadcom-wl pamac-aur imgur-screenshot-git
 ## Install Linux brew
 #ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)"
 ## Update Brew
@@ -39,8 +60,12 @@ sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/to
 ## Install Oh My ZSH plugin
 git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
 
-## Install tmux
-sudo pacman -S --noconfirm tmux
+
+## Notes
+# View list nvidia
+# sudo pacman -Ss | grep nvidia
+# sudo pacman -S nvidia
+# sudo pacman -S nvidia-settings
 
 # ------ Install config ----- #
 #cp arch/.Xmodmap ~
@@ -49,7 +74,7 @@ cp .tmux.conf ~
 cp .aliases ~
 cp .functions ~
 cp .zshrc ~
-mkdir -p ~/.config/nvim 
+mkdir -p ~/.config/nvim
 cp init.vim ~/.config/nvim
 
-echo -e  "\e[5m \e[33mConfig tmux, aliases, functions, oh my zsh, neovim DONE!!!"
+echo -e  "\e[33mConfig tmux, aliases, functions, oh my zsh, neovim DONE!!!"
