@@ -114,6 +114,10 @@
   Plug 'tpope/vim-repeat'
 
   Plug 'tpope/vim-surround'
+  
+  " Rails dev
+  Plug 'tpope/vim-endwise'
+  Plug 'tpope/vim-rails'
 
   "Helpers
   "Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -121,7 +125,6 @@
   " add plugins to &runtimepath
   call plug#end()
   filetype off 
-  execute pathogen#infect()
   set rtp+=~/.vim/bundle/Vundle.vim
   call vundle#begin()
   Plugin 'VundleVim/Vundle.vim'
@@ -243,7 +246,6 @@ vnoremap <leader>s :sort<CR>
 "imap <expr><CR> pumvisible() ? deoplete#mappings#close_popup() : "\<CR>"
 let g:user_emmet_expandabbr_key='<Tab>'
 imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
-execute pathogen#infect()
 " fzf.vim 
 " nnoremap <C-p> :Files<cr>
 let g:fzf_action = {
