@@ -24,8 +24,9 @@ sudo systemctl disable dhcpcd.service
 sudo systemctl start NetworkManager
 sudo systemctl enable NetworkManager
 
-sudo pacman -S --noconfirm  httpie curl wget neovim firefox p7zip tmux  xfce4-screenshooter os-prober 
+sudo pacman -S --noconfirm  httpie curl wget neovim firefox p7zip tmux  xfce4-screenshooter os-prober openssh 
 sudo grub-mkconfig -o /boot/grub/grub.cfg
+mkdir -p ~/.ssh
 
 gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
 \curl -sSL https://get.rvm.io | bash
