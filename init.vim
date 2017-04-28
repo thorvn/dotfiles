@@ -114,19 +114,18 @@
   Plug 'tpope/vim-repeat'
 
   Plug 'tpope/vim-surround'
+  
+  " Rails dev
+  Plug 'tpope/vim-endwise'
+  Plug 'tpope/vim-rails'
+
+  Plug 'mattn/emmet-vim'
 
   "Helpers
   "Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   "Plug 'junegunn/fzf.vim'
   " add plugins to &runtimepath
   call plug#end()
-  filetype off 
-  execute pathogen#infect()
-  set rtp+=~/.vim/bundle/Vundle.vim
-  call vundle#begin()
-  Plugin 'VundleVim/Vundle.vim'
-  Plugin 'terryma/vim-multiple-cursors'
-  call vundle#end()
   filetype on
 
 " Plugin settings
@@ -237,13 +236,12 @@ nnoremap Q <Nop><Paste>
 " sort
 vnoremap <leader>s :sort<CR>
 
-" move through deoplete suggestions with tab
 "imap <expr><TAB> pumvisible() ? "\<C-n>" : (neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>")
+" move through deoplete suggestions with tab
 "imap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
 "imap <expr><CR> pumvisible() ? deoplete#mappings#close_popup() : "\<CR>"
 let g:user_emmet_expandabbr_key='<Tab>'
 imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
-execute pathogen#infect()
 " fzf.vim 
 " nnoremap <C-p> :Files<cr>
 let g:fzf_action = {

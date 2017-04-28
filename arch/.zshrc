@@ -1,8 +1,10 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin::$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/.rvm:$HOME/.rvm/rubies/ruby-2.4.0/bin:$PATH
+export PATH=$HOME/.rvm/gems/ruby-2.4.0/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 export GOPATH=~/go-workspace
 
 # Set name of the theme to load. Optionally, if you set this to "random"
@@ -10,6 +12,7 @@ export GOPATH=~/go-workspace
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 # ZSH_THEME="robbyrussell"
 ZSH_THEME="dpoggi"
+
 # gshuf -n 1 ~/cowsay-quote/quote.txt | cowsay
 # fortune | cowsay -f daemon | lolcat
 # Uncomment the following line to use case-sensitive completion.
@@ -95,3 +98,6 @@ export EDITOR='nvim'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 unsetopt share_history
 
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
