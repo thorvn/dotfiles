@@ -17,24 +17,26 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 # Config network
 
 sudo pacman -S --noconfirm net-tools network-manager-applet
-sudo systemctl stop dhcpcd@ens33.service
-sudo systemctl disable dhcpcd@ens33.service
-sudo systemctl stop dhcpcd.service
-sudo systemctl disable dhcpcd.service
-sudo systemctl start NetworkManager
-sudo systemctl enable NetworkManager
+sudo pacman -S --noconfirm fcitx-unikey ttf-hannom fcitx-configtool fcitx-im 
+sudo pacman -S --noconfirm yarn
+#sudo systemctl stop dhcpcd@ens33.service
+#sudo systemctl disable dhcpcd@ens33.service
+#sudo systemctl stop dhcpcd.service
+#sudo systemctl disable dhcpcd.service
+#sudo systemctl start NetworkManager
+#sudo systemctl enable NetworkManager
 
-sudo pacman -S --noconfirm  httpie curl wget neovim firefox p7zip tmux  xfce4-screenshooter os-prober openssh nodejs
-sudo grub-mkconfig -o /boot/grub/grub.cfg
+sudo pacman -S --noconfirm  httpie curl wget p7zip tmux  xfce4-screenshooter openssh nodejs
 mkdir -p ~/.ssh
 
 gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
 \curl -sSL https://get.rvm.io | bash
 
 # Install python
-pacman -S --noconfirm python
-pacman -S --noconfirm python-pip
+sudo pacman -S --noconfirm python
+sudo pacman -S --noconfirm python-pip
 
+sudo pip3 install neovim
 
 ## Install Rails
 gem install bundler --no-rdoc --no-ri
@@ -56,7 +58,7 @@ yaourt -S --noconfirm tree broadcom-wl pamac-aur imgur-screenshot-git
 ## Install Nodejs
 #yaourt -S --noconfirm nodejs eslint
 
-pacman -S --noconfirm zsh
+sudo pacman -S --noconfirm zsh
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 ## Install Oh My ZSH plugin
 git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
