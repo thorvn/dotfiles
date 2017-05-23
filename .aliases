@@ -9,6 +9,7 @@ alias vim="nvim"
 # use the correct term for ssh
 alias ssh="TERM=xterm-256color ssh"
 alias gls="git remote -v"
+alias gca="git commit --amend"
 alias b="bundle install"
 alias gc="git commit -m"
 alias m="rails db:migrate"
@@ -19,4 +20,3 @@ alias 3.='cd ../../../'
 alias 4.='cd ../../../../'
 alias 5.='cd ../../../../..'
 alias emacs="/usr/local/bin/emacs --insecure"
-alias tmux="tmux -u"
