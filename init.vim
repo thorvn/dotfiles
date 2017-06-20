@@ -182,10 +182,10 @@
     \ }
 
   " neomake
-  let g:neomake_javascript_enabled_makers = ['eslint']
-  let g:neomake_jsx_enabled_makers = ['eslint']
-  let g:neomake_error_sign = {'text': 'xx'}
-  let g:neomake_warning_sign = {'text': '!!'}
+  " let g:neomake_javascript_enabled_makers = ['eslint']
+  " let g:neomake_jsx_enabled_makers = ['eslint']
+  " let g:neomake_error_sign = {'text': 'xx'}
+  " let g:neomake_warning_sign = {'text': '!!'}
 
   " nerdtree
   let NERDTreeMapActivateNode='l'
@@ -200,11 +200,11 @@
   map <C-f> :NERDTreeToggle<CR>
   
   " ternjs
-  let g:tern_show_signature_in_pum = 1
-  let g:tern#filetypes = [
-    \ 'jsx',
-    \ 'javascript.jsx',
-    \ ]
+  " let g:tern_show_signature_in_pum = 1
+  " let g:tern#filetypes = [
+  "  \ 'jsx',
+  "  \ 'javascript.jsx',
+  "  \ ]
 
   " theme settings
   let g:gruvbox_italic = 1
@@ -216,11 +216,6 @@ nore \ ;
 noremap ` ^
 inore jk <Esc>
 inore kj <Esc>
-
-noremap <Up> <NOP>
-noremap <DOWN> <NOP>
-noremap <Left> <NOP>
-noremap <Right> <NOP>
 
 " set leader to space
 let mapleader = " "
