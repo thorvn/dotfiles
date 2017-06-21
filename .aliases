@@ -10,7 +10,8 @@ alias vim="nvim"
 alias ssh="TERM=xterm-256color ssh"
 alias gls="git remote -v"
 alias gca="git commit --amend"
-alias b="bundle install"
+alias greset="git reset --hard && git clean -f"
+alias b="bundle install -j4"
 alias gc="git commit -m"
 alias m="rails db:migrate"
 alias l.="ls -d .*"
@@ -19,4 +20,15 @@ alias 2.="cd ../.."
 alias 3.='cd ../../../'
 alias 4.='cd ../../../../'
 alias 5.='cd ../../../../..'
+alias mkdir='mkdir -p'
 alias emacs="/usr/local/bin/emacs --insecure"
+
+alias crashrm='sudo rm /var/crash/*'
+alias crashls='ls /var/crash/*'
+
+alias rs="rails s"
+alias rc="rails db:create"
+alias rd="rails db:drop"
+alias rr="rails db:reset"
+
+alias cc="tmux show-buffer | xclip -selection clipboard -i"

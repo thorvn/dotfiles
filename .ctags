@@ -1,0 +1,16 @@
+# Basic options
+--recurse=yes
+--tag-relative=yes
+--exclude=.git
+--exclude=node_modules/*
+--exclude=log
+--exclude=vendor/*
+--exclude=tmp
+--exclude=build
+--exclude=publish
+--exclude=public/*
+--exclude=libs
+--exclude=db/*
+--exclude=*.html
+
+--sort=no

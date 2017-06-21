@@ -118,12 +118,14 @@
   " Rails dev
   Plug 'tpope/vim-endwise'
   Plug 'tpope/vim-rails'
+  Plug 'AndrewRadev/splitjoin.vim'
 
   Plug 'mattn/emmet-vim'
 
   "Helpers
-  "Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-  "Plug 'junegunn/fzf.vim'
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+  Plug 'junegunn/fzf.vim'
+
   " add plugins to &runtimepath
   call plug#end()
   filetype on
@@ -208,57 +210,62 @@
 
   " theme settings
   let g:gruvbox_italic = 1
-colorscheme gruvbox
+  colorscheme gruvbox
 
-" ----- Keybindings -----
-nore ; :
-nore \ ;
-noremap ` ^
-inore jk <Esc>
-inore kj <Esc>
+  " ----- Keybindings -----
+  nore ; :
+  nore \ ;
+  noremap ` ^
+  inore jk <Esc>
+  inore kj <Esc>
 
-" set leader to space
-let mapleader = " "
+  " set leader to space
+  let mapleader = "\<SPACE>"
 
-set wildignore+=.git,*.swp,*pyc,*pyo,*.png,*.jpg,*.gif,*.ai,*.jpeg,*.psd,*.jar,*.zip,*.gem,log/**,tmp/**,coverage/**,rdoc/**,output_*,*.xpi,doc/**
-" keep selection after indent
-vnoremap < <gv
-vnoremap > >gv
+  map <leader>f :Files<CR>
+  map <leader>t :Tags<CR>
+  map <leader>w :w<CR>
 
-" prevent entering ex mode accidentally
-nnoremap Q <Nop><Paste>
 
-" sort
-vnoremap <leader>s :sort<CR>
+  set wildignore+=.git,*.swp,*pyc,*pyo,*.png,*.jpg,*.gif,*.ai,*.jpeg,*.psd,*.jar,*.zip,*.gem,log/**,tmp/**,coverage/**,rdoc/**,output_*,*.xpi,doc/**
+  " keep selection after indent
+  vnoremap < <gv
+  vnoremap > >gv
 
-"imap <expr><TAB> pumvisible() ? "\<C-n>" : (neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>")
-" move through deoplete suggestions with tab
-"imap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
-"imap <expr><CR> pumvisible() ? deoplete#mappings#close_popup() : "\<CR>"
-let g:user_emmet_expandabbr_key='<Tab>'
-imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
-" fzf.vim 
-" nnoremap <C-p> :Files<cr>
-let g:fzf_action = {
-  \ 'ctrl-t': 'tab split',
-  \ 'ctrl-x': 'split',
-  \ 'ctrl-v': 'vsplit' }
-let g:fzf_layout = { 'down': '~40%' }
-" Customize fzf colors to match your color scheme
-let g:fzf_colors =
-\ { 'fg':      ['fg', 'Normal'],
-  \ 'bg':      ['bg', 'Normal'],
-  \ 'hl':      ['fg', 'Comment'],
-  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-  \ 'hl+':     ['fg', 'Statement'],
-  \ 'info':    ['fg', 'PreProc'],
-  \ 'prompt':  ['fg', 'Conditional'],
-  \ 'pointer': ['fg', 'Exception'],
-  \ 'marker':  ['fg', 'Keyword'],
-  \ 'spinner': ['fg', 'Label'],
-  \ 'header':  ['fg', 'Comment'] }
-let g:fzf_history_dir = '~/.local/share/fzf-history'
+  " prevent entering ex mode accidentally
+  nnoremap Q <Nop><Paste>
+
+  " sort
+  vnoremap <leader>s :sort<CR>
+
+  "imap <expr><TAB> pumvisible() ? "\<C-n>" : (neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>")
+  " move through deoplete suggestions with tab
+  "imap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
+  "imap <expr><CR> pumvisible() ? deoplete#mappings#close_popup() : "\<CR>"
+  let g:user_emmet_expandabbr_key='<Tab>'
+  imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
+  " fzf.vim 
+  " nnoremap <C-p> :Files<cr>
+  let g:fzf_action = {
+    \ 'ctrl-t': 'tab split',
+    \ 'ctrl-x': 'split',
+    \ 'ctrl-v': 'vsplit' }
+  let g:fzf_layout = { 'down': '~40%' }
+  " Customize fzf colors to match your color scheme
+  let g:fzf_colors =
+  \ { 'fg':      ['fg', 'Normal'],
+    \ 'bg':      ['bg', 'Normal'],
+    \ 'hl':      ['fg', 'Comment'],
+    \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+    \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+    \ 'hl+':     ['fg', 'Statement'],
+    \ 'info':    ['fg', 'PreProc'],
+    \ 'prompt':  ['fg', 'Conditional'],
+    \ 'pointer': ['fg', 'Exception'],
+    \ 'marker':  ['fg', 'Keyword'],
+    \ 'spinner': ['fg', 'Label'],
+    \ 'header':  ['fg', 'Comment'] }
+  let g:fzf_history_dir = '~/.local/share/fzf-history'
 
 " Autocommands
   if has("autocmd")
@@ -275,7 +282,7 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 
   endif
 
-" Searching
+  " Searching
   if executable('ag')
 
     " use ag over grep
@@ -287,4 +294,4 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
     " bind \ to grep shortcut
    " nnoremap \ :Ag<SPACE>
 
-endif
+  endif
