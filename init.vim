@@ -7,7 +7,7 @@
   " interface
   set background=dark                   " tell vim what the background color looks like
   set colorcolumn=100                   " show a column at 100 chars
-  set cursorline                        " highlight current line
+  "set cursorline                        " highlight current line
   set laststatus=2                      " enable airline on open
   set noshowmode                        " don't show mode as airline already does
   set number                            " show line numbers
@@ -139,12 +139,16 @@
   let g:closetag_filenames = "*.html,*.jsx"
 
   " ctrlp
-  let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
-  let g:ctrlp_show_hidden = 1
-  let g:ctrlp_prompt_mappings = {
-  \ 'AcceptSelection("h")': ['<c-s>'],
-  \ 'AcceptSelection("v")': ['<c-v>'],
-  \  }
+  "let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|bin'
+  "let g:ctrlp_show_hidden = 1
+  "let g:ctrlp_prompt_mappings = {
+  "\ 'AcceptSelection("h")': ['<c-s>'],
+  "\ 'AcceptSelection("v")': ['<c-v>'],
+  "\  }
+  let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\.git\|node_modules\|bin\|\.hg\|\.svn\|build\|log\|resources\|coverage\|doc\|tmp\|public/assets\|vendor\|Android',
+  \ 'file': '\.jpg$\|\.exe$\|\.so$\|tags$\|\.dll$'
+  \ }
 
   " deoplete
   set completeopt=longest,menuone
@@ -199,6 +203,9 @@
   let NERDTreeQuitOnOpen=1
   let NERDTreeMinimalUI=1
   let NERDTreeRespectWildIgnore=1
+
+  let NERDTreeIgnore = ['bin/*', 'log/*', 'lib/*', 'tmp/*', 'vendor/*']
+
   map <C-f> :NERDTreeToggle<CR>
   
   " ternjs
@@ -218,6 +225,16 @@
   noremap ` ^
   inore jk <Esc>
   inore kj <Esc>
+  
+  nnoremap <F3> :set hlsearch!<CR>
+
+  " move in insert mode
+  inoremap <A-h> <C-o>h
+  inoremap <A-j> <C-o>j
+  inoremap <A-k> <C-o>k
+  inoremap <A-l> <C-o>l
+  inoremap <A-a> <C-o>A
+  inoremap <A-i> <C-o>I
 
   " set leader to space
   let mapleader = "\<SPACE>"
@@ -225,8 +242,7 @@
   map <leader>f :Files<CR>
   map <leader>t :Tags<CR>
   map <leader>w :w<CR>
-
-
+  
   set wildignore+=.git,*.swp,*pyc,*pyo,*.png,*.jpg,*.gif,*.ai,*.jpeg,*.psd,*.jar,*.zip,*.gem,log/**,tmp/**,coverage/**,rdoc/**,output_*,*.xpi,doc/**
   " keep selection after indent
   vnoremap < <gv
@@ -274,7 +290,7 @@
     autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
     " set neomake's eslint path to the local eslint, and enable it as a maker
-    autocmd BufEnter *.js,*.jsx let b:neomake_javascript_eslint_exe = nrun#Which('eslint')
+    " autocmd BufEnter *.js,*.jsx let b:neomake_javascript_eslint_exe = nrun#Which('eslint')
     autocmd! BufEnter,BufWritePost * Neomake
 
     " better syntax highlighting
@@ -292,6 +308,6 @@
     command! -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
 
     " bind \ to grep shortcut
-   " nnoremap \ :Ag<SPACE>
+   nnoremap \ :Ag<SPACE>
 
   endif

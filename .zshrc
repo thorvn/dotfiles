@@ -6,6 +6,11 @@ export ZSH=$HOME/.oh-my-zsh
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 
+# Gem user-install
+if which ruby >/dev/null && which gem >/dev/null; then
+    PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
+fi
+export FZF_DEFAULT_COMMAND='ag -g ""'
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
@@ -16,6 +21,7 @@ if [ -z "$TMUX" ]; then
 fi
 
 setopt no_share_history
+
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -58,7 +64,7 @@ DISABLE_AUTO_UPDATE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions common-aliases)
+plugins=(git zsh-autosuggestions )
 
 source $ZSH/oh-my-zsh.sh
 source $ZSH/custom/plugins/zsh-autosuggestions/src/config.zsh
@@ -80,6 +86,7 @@ else
   export EDITOR='nvim'
 fi
 
+
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
@@ -95,3 +102,5 @@ fi
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
