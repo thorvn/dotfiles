@@ -63,6 +63,16 @@ sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/to
 ## Install Oh My ZSH plugin
 git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
 
+# Install audio
+sudo pacman -S pulseaudio pulseaudio-alsa pavucontrol libcanberra-pulse
+systemctl --user enable pulseaudio.socket
+pulseaudio --start
+pulseaudio --kill
+sh -c "pactl set-sink-mute 0 false ; pactl set-sink-volume 0 +5%"
+sh -c "pactl set-sink-mute 0 false ; pactl -- set-sink-volume 0 -5%"
+pactl set-sink-mute 0 toggle
+pacaur xfce4-volumed-pulse
+
 
 ## Notes
 # View list nvidia
