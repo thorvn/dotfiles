@@ -23,3 +23,8 @@ sudo apt-get -y install git-flow
 pip3 install neovim
 pip install neovim
 gem install neovim
+
+# Config extend monitor
+xrandr | grep 'HDMI1 connected' &&
+    xrandr --output eDP1 --auto --output HDMI1 --auto --right-of eDP1
+

@@ -2,7 +2,6 @@ alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias tls="tmux ls"
 alias tkill="tmux kill-session -t"
-alias tmux="tmux -u"
 alias c="clear"
 alias v="nvim"
 alias vi="nvim"
@@ -23,6 +22,7 @@ alias 4.='cd ../../../../'
 alias 5.='cd ../../../../..'
 alias mkdir='mkdir -p'
 alias emacs="/usr/local/bin/emacs --insecure"
+alias ctags="ctags -R ."
 
 alias crashrm='sudo rm /var/crash/*'
 alias crashls='ls /var/crash/*'
