@@ -27,4 +27,9 @@ gem install neovim
 # Config extend monitor
 xrandr | grep 'HDMI1 connected' &&
     xrandr --output eDP1 --auto --output HDMI1 --auto --right-of eDP1
+# Install network manager for i3
+# sudo apt-get install wicd 
 
+# Disable touchpad while typing
+# killall syndaemon
+# syndaemon -i 4 -K -d

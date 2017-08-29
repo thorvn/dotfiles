@@ -1,3 +1,5 @@
-sudo apt-get install nginx
-sudo apt-get install php7.0-cli php7.0-cgi php7.0-fpm
-sudo apt-get install mysql-server php7.0-mysql
+export LC_CTYPE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+sudo apt-get install -y nginx
+sudo apt-get install -y php-fpm php-mysql
+sudo apt-get install -y mariadb-server
