@@ -17,7 +17,7 @@ export FZF_DEFAULT_COMMAND='ag -g ""'
 ZSH_THEME="dpoggi"
 
 if [ -z "$TMUX" ]; then
-  tmux a || tmux new
+  tmux -2 || tmux new
 fi
 
 setopt no_share_history
