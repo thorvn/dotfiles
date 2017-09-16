@@ -236,6 +236,9 @@
   inoremap <A-a> <C-o>A
   inoremap <A-i> <C-o>I
 
+  " Compile and run C++
+  map <F8> :w <CR> :!gcc % -o %< && ./%< <CR>
+
   " set leader to space
   let mapleader = "\<SPACE>"
 

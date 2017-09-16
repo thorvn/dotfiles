@@ -3,14 +3,14 @@
 [color]
 	ui = auto
 [user]
-	email = 
+	email = votantho93@gmail.com
 	username = tho.vo
-	name = tho.vo 
+	name = kensupermen
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
 [core]
-	excludesfile = ~/.gitignore_global
+	excludesfile = /home/geeker/.gitignore_global
 [rebase]
 	autosquash = true
 [alias]
