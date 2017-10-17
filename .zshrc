@@ -67,7 +67,7 @@ DISABLE_AUTO_UPDATE="true"
 plugins=(git zsh-autosuggestions )
 
 source $ZSH/oh-my-zsh.sh
-source $ZSH/custom/plugins/zsh-autosuggestions/src/config.zsh
+source $ZSH/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # load aliases
 source ~/.aliases

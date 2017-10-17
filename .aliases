@@ -40,3 +40,6 @@ alias drmi='docker rmi $(docker images -f "dangling=true" -q) -f'
 alias drps='docker rm $(docker ps -q)'
 alias di='docker images'
 alias dp='docker ps'
+
+
+alias ii='sudo apt-get install -i'
