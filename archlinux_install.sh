@@ -16,7 +16,10 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 
 # Config network
 
+sudo pacman -S --noconfirm networkmanager
 sudo pacman -S --noconfirm net-tools network-manager-applet
+sudo systemctl enable NetworkManager
+sudo systemctl start NetworkManager
 sudo pacman -S --noconfirm fcitx-unikey ttf-hannom fcitx-configtool fcitx-im 
 sudo pacman -S --noconfirm yarn
 #sudo systemctl stop dhcpcd@ens33.service
@@ -51,6 +54,8 @@ gem install rails --no-rdoc --no-ri
 #git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 
 yaourt -S --noconfirm tree broadcom-wl pamac-aur imgur-screenshot-git
+yaourt -S --noconfirm google-chrome firefox-nightly
+
 ## Install Linux brew
 #ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)"
 ## Update Brew
