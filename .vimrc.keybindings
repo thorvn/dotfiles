@@ -1,0 +1,37 @@
+  " set leader to space
+  let mapleader = ","
+  " let mapleader = "\<SPACE>"
+
+  nore ; :
+  nore \ ;
+  noremap ` ^
+  inore jk <Esc>
+  inore kj <Esc>
+
+  nnoremap <F3> :set hlsearch!<CR>
+
+  " move in insert mode
+  inoremap <A-h> <C-o>h
+  inoremap <A-j> <C-o>j
+  inoremap <A-k> <C-o>k
+  inoremap <A-l> <C-o>l
+  inoremap <A-a> <C-o>A
+  inoremap <A-i> <C-o>I
+
+  " Compile and run C++
+  map <F8> :w <CR> :!gcc % -o %< && ./%< <CR>
+
+  map <leader>f :Files<CR>
+  map <leader>t :Tags<CR>
+  map <leader>w :w<CR>
+
+  " keep selection after indent
+  vnoremap < <gv
+  vnoremap > >gv
+
+  " prevent entering ex mode accidentally
+  nnoremap Q <Nop><Paste>
+
+  " sort
+  vnoremap <leader>s :sort<CR>
+  map <C-f> :NERDTreeToggle<CR>

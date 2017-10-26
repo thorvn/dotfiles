@@ -1,0 +1,50 @@
+  " syntax related
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  Plug 'alvan/vim-closetag'
+ " Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+  Plug 'editorconfig/editorconfig-vim'
+  Plug 'jiangmiao/auto-pairs'
+  Plug 'matze/vim-move'
+  Plug 'othree/javascript-libraries-syntax.vim'
+  Plug 'sheerun/vim-polyglot'
+  Plug 'valloric/matchtagalways'
+
+  " ui related
+  Plug 'Xuyuanp/nerdtree-git-plugin'
+  Plug 'airblade/vim-gitgutter'
+  Plug 'christoomey/vim-tmux-navigator'
+  Plug 'ctrlpvim/ctrlp.vim'
+  Plug 'dietsche/vim-lastplace'
+  Plug 'easymotion/vim-easymotion'
+  Plug 'morhetz/gruvbox'
+  Plug 'scrooloose/nerdtree'
+  Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
+  Plug 'wesQ3/vim-windowswap'
+  Plug 'yggdroot/indentline'
+ " Plug 'yssl/QFEnter'
+  Plug 'chriskempson/base16-vim'
+
+  " background utils
+  Plug 'ConradIrwin/vim-bracketed-paste'
+  Plug 'jaawerth/nrun.vim'
+  Plug 'neomake/neomake'
+  Plug 'tmux-plugins/vim-tmux-focus-events'
+
+  " El popo
+  Plug 'scrooloose/nerdcommenter'
+  Plug 'tpope/vim-fugitive'
+  Plug 'tpope/vim-repeat'
+
+  Plug 'tpope/vim-surround'
+  
+  " Rails dev
+  Plug 'tpope/vim-endwise'
+  Plug 'tpope/vim-rails'
+  Plug 'AndrewRadev/splitjoin.vim'
+
+  Plug 'mattn/emmet-vim'
+
+  "Helpers
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+  Plug 'junegunn/fzf.vim'
