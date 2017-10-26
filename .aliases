@@ -45,3 +45,4 @@ alias dp='docker ps'
 alias ii='sudo apt-get install -i'
 alias makepkg='makepkg --skippgpcheck'
 alias install="yaourt --m-arg "--skipchecksums --skippgpcheck" -Sb"
+alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
