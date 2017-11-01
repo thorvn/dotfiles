@@ -47,4 +47,18 @@ VirtualBox VMs/
 .yarnrc
 .zcompdump*
 workspace/
+.ICEauthority
+.bash_logout
+.bash_profile
+.cinnamon/
+.esd_auth
+.face
+.gnupg/
+.mozilla/
+.pki/
+.python_history
+.themes/
+.thumbnails/
+.yarn/
+.zsh/
 

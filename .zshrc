@@ -31,7 +31,6 @@ plugins=(git zsh-autosuggestions )
 
 source $ZSH/oh-my-zsh.sh
 # source $ZSH/custom/plugins/zsh-autosuggestions/src/config.zsh
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh # Install with brew
 
 # load aliases
 source ~/.aliases
@@ -59,11 +58,13 @@ eval "$(rbenv init -)"
 case $(uname) in
 Linux)
   [ -f ~/.zshrc.linux ] && source ~/.zshrc.linux
-  [ -f ~/.zshrc.alias.linux ] && while read line; do eval "alias $line"; done < ~/.zshrc.alias.linux
+  [ -f ~/.zshrc.theme.linux ] && source ~/.zshrc.theme.linux
+  [ -f ~/.zshrc.alias.linux ] && source ~/.zshrc.alias.linux
   ;;
 Darwin)
   source <(kubectl completion zsh)
   [ -f ~/.zshrc.theme.osx ] && source ~/.zshrc.theme.osx
+  source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh # Install with brew
   ;;
 esac
 

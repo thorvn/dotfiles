@@ -1,0 +1,13 @@
+colorful() {
+  print -P "\e[38;5;"$1"m"$2$RESET_COLOR
+}
+
+local RESET_COLOR="%{$reset_color%}"
+local GREEN_COLOR="%{$fg[green]%}"
+
+PROMPT='%{$fg[magenta]%}%n$RESET_COLOR\
+@$GREEN_COLOR%m$RESET_COLOR \
+%{$fg[yellow]%}$(git_prompt_info)$RESET_COLOR\
+%~ -> $RESET_COLOR'
+
+PROMPT2='Please press Ctrl + C to exit '
