@@ -8,6 +8,8 @@
   Plug 'othree/javascript-libraries-syntax.vim'
   Plug 'sheerun/vim-polyglot'
   Plug 'valloric/matchtagalways'
+  Plug 'mxw/vim-jsx'
+  Plug 'pangloss/vim-javascript'
 
   " ui related
   Plug 'Xuyuanp/nerdtree-git-plugin'

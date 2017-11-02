@@ -37,6 +37,10 @@
   " editorconfig
   let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 
+  " jsx
+  let g:jsx_ext_required = 0
+  let g:jsx_pragma_required = 1
+
   " neomake
   " let g:neomake_javascript_enabled_makers = ['eslint']
   " let g:neomake_jsx_enabled_makers = ['eslint']
@@ -65,7 +69,7 @@
   let NERDTreeMapActivateNode='l'
   let NERDTreeMinimalUI=1
   let NERDTreeRespectWildIgnore=1
-  let NERDTreeIgnore = ['bin/*', 'log/*', 'lib/*', 'tmp/*', 'vendor/*']
+  let NERDTreeIgnore = ['bin/*', 'log/*', 'lib/*', 'tmp/*', 'vendor/*', 'node_modules', 'config.ru', 'Gemfile.lock']
 
   let g:user_emmet_expandabbr_key = '<Tab>'
   " Handle tab for indention

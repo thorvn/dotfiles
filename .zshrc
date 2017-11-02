@@ -30,7 +30,6 @@ DISABLE_AUTO_UPDATE="true"
 plugins=(git zsh-autosuggestions )
 
 source $ZSH/oh-my-zsh.sh
-# source $ZSH/custom/plugins/zsh-autosuggestions/src/config.zsh
 
 # load aliases
 source ~/.aliases
@@ -59,6 +58,7 @@ Linux)
   [ -f ~/.zshrc.linux ] && source ~/.zshrc.linux
   [ -f ~/.zshrc.theme.linux ] && source ~/.zshrc.theme.linux
   [ -f ~/.zshrc.alias.linux ] && source ~/.zshrc.alias.linux
+  source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
   ;;
 Darwin)
   source <(kubectl completion zsh)
