@@ -4,9 +4,11 @@
 
   nore ; :
   nore \ ;
+  nore t :tabnew 
   noremap ` ^
   inore jk <Esc>
   inore kj <Esc>
+
 
   nnoremap <F3> :set hlsearch!<CR>
 
@@ -22,7 +24,8 @@
   map <F8> :w <CR> :!gcc % -o %< && ./%< <CR>
 
   map <leader>f :Files<CR>
-  map <leader>t :Tags<CR>
+  map <leader>t <C-w>v
+  map <leader>q <C-w>q
   map <leader>w :w<CR>
 
   " keep selection after indent

@@ -63,15 +63,10 @@
 
   " nerdtree
   let NERDTreeMapActivateNode='l'
-  let NERDTreeMapCloseDir='h'
-  let NERDTreeMapOpenSplit='<c-s>'
-  let NERDTreeMapOpenVSplit='<c-v>'
-  autocmd vimenter * NERDTree
-
   let NERDTreeMinimalUI=1
   let NERDTreeRespectWildIgnore=1
-
   let NERDTreeIgnore = ['bin/*', 'log/*', 'lib/*', 'tmp/*', 'vendor/*']
+
   let g:user_emmet_expandabbr_key = '<Tab>'
   " Handle tab for indention
   imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
