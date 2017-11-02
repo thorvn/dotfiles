@@ -61,4 +61,6 @@ workspace/
 .thumbnails/
 .yarn/
 .zsh/
-
+.Trash/
+.npm/
+.pry_history
