@@ -27,7 +27,7 @@ fi
 
 DISABLE_AUTO_UPDATE="true"
 
-plugins=(git zsh-autosuggestions )
+plugins=(git zsh-autosuggestions ssh-agent)
 
 source $ZSH/oh-my-zsh.sh
 

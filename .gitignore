@@ -64,3 +64,8 @@ workspace/
 .Trash/
 .npm/
 .pry_history
+.lesshst
+.netrc
+.ngrok2/
+.skylight
+.babel.json
