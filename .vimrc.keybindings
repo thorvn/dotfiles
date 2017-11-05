@@ -4,7 +4,6 @@
 
   nore ; :
   nore \ ;
-  nore t :tabnew 
   noremap ` ^
   inore jk <Esc>
   inore kj <Esc>

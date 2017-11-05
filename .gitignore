@@ -64,3 +64,5 @@ workspace/
 .Trash/
 .npm/
 .pry_history
+.lesshst
+.netrc
