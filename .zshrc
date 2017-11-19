@@ -4,18 +4,12 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" --no-use # This loads nvm
 
 # Gem user-install
 if which ruby >/dev/null && which gem >/dev/null; then
     PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
 fi
-
-# Use vim key bindings
-bindkey -v
-
-# use jj to enter vim cmd mode
-bindkey jk vi-cmd-mode
 
 export KEYTIMEOUT=20
 
@@ -27,12 +21,15 @@ fi
 
 DISABLE_AUTO_UPDATE="true"
 
-plugins=(git zsh-autosuggestions ssh-agent)
+plugins=(git zsh-autosuggestions vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
 # load aliases
 source ~/.aliases
+
+# load custom function
+source ~/.functions
 
 # User configuration
 
