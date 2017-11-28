@@ -52,3 +52,7 @@
   map <Leader>7 7gt
   map <Leader>8 8gt
   map <Leader>9 9gt
+
+  " For rails
+  map <Leader>db :e db/schema.rb<CR>
+  map <Leader>r :e config/routes.rb<CR>
