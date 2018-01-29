@@ -3,11 +3,8 @@
   colorscheme base16-ocean
 
   " airline
-  let g:airline_powerline_fonts = 1
-  let g:airline_theme='base16'
-
-  " close-tag
-  let g:closetag_filenames = "*.html,*.jsx,*.tsx"
+  " let g:airline_powerline_fonts = 1
+  " let g:airline_theme='base16'
 
   " gitgutter
   set signcolumn=yes
@@ -24,43 +21,19 @@
   let g:deoplete#max_list = 5
   let g:deoplete#omni#functions = {}
   let g:deoplete#sources = {}
-  " let g:deoplete#omni#functions.javascript = ['tern#Complete']
-  " let g:deoplete#sources['javascript.jsx'] = ['buffer', 'ternjs']
   let g:deoplete#enable_smart_case = 1
   let g:AutoPairsMapCR=0
   let g:deoplete#enable_camel_case = 1
 
   " easymotion
-  let g:EasyMotion_smartcase = 1
-  let g:EasyMotion_keys='qwertyuiopasdfghjklzxcvbnm'
-
-  " editorconfig
-  let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
-
-  " jsx
-  let g:jsx_ext_required = 0
-  let g:jsx_pragma_required = 1
+  " let g:EasyMotion_smartcase = 1
+  " let g:EasyMotion_keys='qwertyuiopasdfghjklzxcvbnm'
 
   " neomake
   " let g:neomake_javascript_enabled_makers = ['eslint']
   " let g:neomake_jsx_enabled_makers = ['eslint']
   " let g:neomake_error_sign = {'text': 'xx'}
   " let g:neomake_warning_sign = {'text': '!!'}
-
-  " ternjs
-  " let g:tern_show_signature_in_pum = 1
-  " let g:tern#filetypes = [
-  "  \ 'jsx',
-  "  \ 'javascript.jsx',
-  "  \ ]
-  
-  " matchtagalways
-  let g:mta_filetypes = {
-    \ 'javascript.jsx': 1,
-    \ 'javascript.tsx': 1,
-    \ 'html' : 1,
-    \ 'xml' : 1,
-    \ }
 
   " nerdcommenter
   let g:NERDSpaceDelims = 1
@@ -72,6 +45,7 @@
   let NERDTreeIgnore = ['bin/*', 'log/*', 'lib/*', 'tmp/*', 'vendor/*', 'node_modules', 'config.ru', 'Gemfile.lock']
 
   let g:user_emmet_expandabbr_key = '<Tab>'
+
   " Handle tab for indention
   imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
 
@@ -79,6 +53,7 @@
     \ 'ctrl-t': 'tab split',
     \ 'ctrl-x': 'split',
     \ 'ctrl-v': 'vsplit' }
+
   let g:fzf_layout = { 'down': '~40%' }
   " Customize fzf colors to match your color scheme
   let g:fzf_colors =
@@ -108,6 +83,9 @@
 
     " better syntax highlighting
     autocmd BufNewFile,BufRead *eslintrc,*babelrc setlocal syntax=json
+
+    " Treat .md files as Markdown
+    autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
 
   endif
 

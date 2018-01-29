@@ -1,58 +1,63 @@
-  " set leader to space
-  let mapleader = ","
-  " let mapleader = "\<SPACE>"
+nore ; :
+nore \ ;
+noremap ` ^
+inore jk <Esc>
+inore kj <Esc>
 
-  nore ; :
-  nore \ ;
-  noremap ` ^
-  inore jk <Esc>
-  inore kj <Esc>
+nnoremap <F3> :set hlsearch!<CR>
 
+" move in insert mode
+inoremap <A-h> <C-o>h
+inoremap <A-j> <C-o>j
+inoremap <A-k> <C-o>k
+inoremap <A-l> <C-o>l
+inoremap <A-a> <C-o>A
+inoremap <A-i> <C-o>I
 
-  nnoremap <F3> :set hlsearch!<CR>
+" prevent entering ex mode accidentally
+nnoremap Q <Nop><Paste>
 
-  " targbar
-  nmap <Leader>b :TagbarToggle<CR>
+" keep selection after indent
+vnoremap < <gv
+vnoremap > >gv
 
-  " move in insert mode
-  inoremap <A-h> <C-o>h
-  inoremap <A-j> <C-o>j
-  inoremap <A-k> <C-o>k
-  inoremap <A-l> <C-o>l
-  inoremap <A-a> <C-o>A
-  inoremap <A-i> <C-o>I
+map <C-f> :NERDTreeToggle<CR>
 
-  " Compile and run C++
-  map <F8> :w <CR> :!gcc % -o %< && ./%< <CR>
+" Compile and run C++
+map <F8> :w <CR> :!gcc % -o %< && ./%< <CR>
 
-  map <leader>f :Files<CR>
-  map <leader>t <C-w>v
-  map <leader>q <C-w>q
-  map <leader>w :w<CR>
+nmap <CR> o<Esc>k
+nnoremap <S-CR> O<Esc>j
 
-  " keep selection after indent
-  vnoremap < <gv
-  vnoremap > >gv
+" ----------------------- Config for LEADER KEY -------------------------------
 
-  " prevent entering ex mode accidentally
-  nnoremap Q <Nop><Paste>
+" set leader to space
+let mapleader = ","
+" let mapleader = "\<SPACE>"
 
-  " sort
-  vnoremap <leader>s :sort<CR>
-  map <C-f> :NERDTreeToggle<CR>
+map <leader>f :Files<CR>
+map <leader>q <C-w>q
+map <leader>t <C-w>v
+map <leader>w :w<CR>
 
+" targbar
+nmap <Leader>b :TagbarToggle<CR>
 
-  " Shortcut to select tab
-  map <Leader>1 1gt
-  map <Leader>2 2gt
-  map <Leader>3 3gt
-  map <Leader>4 4gt
-  map <Leader>5 5gt
-  map <Leader>6 6gt
-  map <Leader>7 7gt
-  map <Leader>8 8gt
-  map <Leader>9 9gt
+" Switch between the last two files
+nnoremap <Leader><Leader> <C-^>
 
-  " For rails
-  map <Leader>db :e db/schema.rb<CR>
-  map <Leader>r :e config/routes.rb<CR>
+" Shortcut to select tab
+map <Leader>1 1gt
+map <Leader>2 2gt
+map <Leader>3 3gt
+
+" For rails
+map <Leader>c :Econtroller<SPACE>
+map <Leader>db :e db/schema.rb<CR>
+map <Leader>d <ESC>odebugger<ESC>
+map <Leader>g :e Gemfile<CR>
+map <Leader>m :Emodel<SPACE>
+map <Leader>r :e config/routes.rb<CR>
+
+" For git
+map <Leader>gs :Gstatus<CR>
