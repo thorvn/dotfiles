@@ -3,8 +3,11 @@
   colorscheme base16-ocean
 
   " airline
-  " let g:airline_powerline_fonts = 1
-  " let g:airline_theme='base16'
+  "let g:airline_powerline_fonts = 1
+  "let g:airline_theme='base16'
+  let g:lightline = {
+      \ 'colorscheme': 'jellybeans',
+      \ }
 
   " gitgutter
   set signcolumn=yes
@@ -38,6 +41,16 @@
   " nerdcommenter
   let g:NERDSpaceDelims = 1
 
+  " vim-javascript
+  let g:javascript_plugin_flow = 1
+  augroup javascript_folding
+    au!
+    au FileType javascript setlocal foldmethod=syntax
+  augroup END
+
+  " vim-jsx
+  let g:jsx_ext_required = 0
+
   " nerdtree
   let NERDTreeMapActivateNode='l'
   let NERDTreeMinimalUI=1
@@ -70,6 +83,22 @@
     \ 'spinner': ['fg', 'Label'],
     \ 'header':  ['fg', 'Comment'] }
   let g:fzf_history_dir = '~/.local/share/fzf-history'
+
+  " -------------- Fix auto insert _Plug_ of vim-multiple-cursors and deoplete ----------
+  " Called once right before you start selecting multiple cursors
+  function! Multiple_cursors_before()
+    if exists(':NeoCompleteLock')==2
+      exe 'NeoCompleteLock'
+    endif
+  endfunction
+
+  " Called once only when the multiple selection is canceled (default <Esc>)
+  function! Multiple_cursors_after()
+    if exists(':NeoCompleteUnlock')==2
+      exe 'NeoCompleteUnlock'
+    endif
+  endfunction
+  " ----------------------------------------------------------------------------------------
 
   " Autocommands
   if has("autocmd")

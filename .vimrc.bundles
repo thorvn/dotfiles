@@ -3,6 +3,7 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 " Syntax highlighting for js: angular, vue, react
 Plug 'sheerun/vim-polyglot'
+Plug 'jiangmiao/auto-pairs'
 
 Plug 'tpope/vim-fugitive'
 Plug 'terryma/vim-multiple-cursors'
@@ -14,8 +15,11 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'easymotion/vim-easymotion'
 Plug 'scrooloose/nerdtree'
 "Plug 'vim-airline/vim-airline'
-"Plug 'vim-airline/vim-airline-themes'
+" Plug 'vim-airline/vim-airline-themes'
 Plug 'chriskempson/base16-vim'
+Plug 'itchyny/lightline.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
 
 " background utils
 "Plug 'ConradIrwin/vim-bracketed-paste'
@@ -32,6 +36,9 @@ Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-rails'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'majutsushi/tagbar'
+
+" Javascript dev
+Plug 'ternjs/tern_for_vim'
 
 Plug 'mattn/emmet-vim'
 

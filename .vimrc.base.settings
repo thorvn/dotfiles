@@ -8,7 +8,7 @@ set background=dark                   " tell vim what the background color looks
 "set colorcolumn=120                   " show a column at 100 chars
 "set cursorline                        " highlight current line
 "set laststatus=2                      " enable airline on open
-"set noshowmode                        " don't show mode as airline already does
+set noshowmode                        " don't show mode as airline already does
 set number                            " show line numbers
 set relativenumber                    " show relative line numbers
 set ruler                             " show current position at bottom
@@ -48,6 +48,7 @@ set whichwrap=b,s,h,l,<,>,[,]         " backspace and cursor keys wrap too
 
 " searching
 set hlsearch                          " highlight search matches
+hi Search guibg=LightBlue
 set ignorecase                        " set case insensitive searching
 set incsearch                         " find as you type search
 set smartcase                         " case sensitive searching when not all lowercase
@@ -55,7 +56,8 @@ set smartcase                         " case sensitive searching when not all lo
 " background processes
 set autoread                          " update file when changed outside of vim
 set autoindent                        " copy indentation from the previous line for new line
-set clipboard=unnamed                 " use native clipboard
+"set clipboard=unnamed                 " use native clipboard
+set clipboard+=unnamedplus
 set history=200                       " store last 200 commands as history
 set lazyredraw                        " no unneeded redraws
 set nobackup                          " don't save backups
@@ -66,6 +68,10 @@ set ttyfast                           " indicates a fast terminal connection
 set undodir=~/.config/nvim/undodir    " set undofile location
 set undofile                          " maintain undo history between sessions
 set undolevels=1000                   " store 1000 undos
+
+autocmd Filetype html setlocal ts=2 sts=2 sw=2
+autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
+autocmd Filetype javascript setlocal ts=4 sts=4 sw=4
 
 " character encoding
 if !&readonly

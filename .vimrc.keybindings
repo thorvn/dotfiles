@@ -23,11 +23,23 @@ vnoremap > >gv
 
 map <C-f> :NERDTreeToggle<CR>
 
-" Compile and run C++
-map <F8> :w <CR> :!gcc % -o %< && ./%< <CR>
+" Insert debug line in js file
+map <F6> <ESC>odebugger<ESC>
 
-nmap <CR> o<Esc>k
-nnoremap <S-CR> O<Esc>j
+" Insert debug line in js file
+map <F7> <ESC>oconsole.log();<ESC>
+
+" Compile and run C++
+" map <F8> :w <CR> :!gcc % -o %< && ./%< <CR>
+
+" targbar
+map <F8> :TagbarToggle<CR>
+
+" Mappings to toggle folds
+inoremap <F9> <C-O>za
+nnoremap <F9> za
+onoremap <F9> <C-C>za
+vnoremap <F9> zf
 
 " ----------------------- Config for LEADER KEY -------------------------------
 
@@ -35,16 +47,13 @@ nnoremap <S-CR> O<Esc>j
 let mapleader = ","
 " let mapleader = "\<SPACE>"
 
-map <leader>f :Files<CR>
+map <C-p> :Files<CR>
 map <leader>q <C-w>q
 map <leader>t <C-w>v
 map <leader>w :w<CR>
 
-" targbar
-nmap <Leader>b :TagbarToggle<CR>
-
 " Switch between the last two files
-nnoremap <Leader><Leader> <C-^>
+nnoremap <Leader>. <C-^>
 
 " Shortcut to select tab
 map <Leader>1 1gt
