@@ -2,6 +2,11 @@
 sudo apt-get -y install software-properties-common python-dev python-pip python3-dev python3-pip
 sudo apt-get -y install curl zsh libpq-dev fcitx-unikey xclip  libevent-dev
 
+# Install source code pro font( only install on relase branch )
+[ -d /usr/share/fonts/opentype ] || sudo mkdir /usr/share/fonts/opentype
+sudo git clone --depth 1 --branch release https://github.com/adobe-fonts/source-code-pro.git /usr/share/fonts/opentype/scp
+sudo fc-cache -f -v
+
 # Install oh my zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
