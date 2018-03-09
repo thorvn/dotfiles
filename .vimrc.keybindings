@@ -44,8 +44,8 @@ vnoremap <F9> zf
 " ----------------------- Config for LEADER KEY -------------------------------
 
 " set leader to space
-let mapleader = ","
-" let mapleader = "\<SPACE>"
+" let mapleader = ","
+let mapleader = "\<SPACE>"
 
 map <C-p> :Files<CR>
 map <leader>q <C-w>q
