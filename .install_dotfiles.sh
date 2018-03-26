@@ -15,6 +15,11 @@ fi;
 config checkout
 config config status.showUntrackedFiles no
 
+if [ ! -d "$HOME/.config/nvim" ]; then
+  mkdir -p $HOME/.config/nvim
+fi
+cp $HOME/.init.vim $HOME/.config/nvim/init.vim
+
 # Install vim plug for neovim
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
