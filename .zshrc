@@ -23,7 +23,7 @@ fi
 
 DISABLE_AUTO_UPDATE="true"
 
-plugins=(git zsh-autosuggestions vi-mode)
+plugins=(git vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -57,7 +57,7 @@ Linux)
   [ -f ~/.zshrc.linux ] && source ~/.zshrc.linux
   [ -f ~/.zshrc.theme.linux ] && source ~/.zshrc.theme.linux
   [ -f ~/.zshrc.alias.linux ] && source ~/.zshrc.alias.linux
-  source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+  source $ZSH_CUSTOM/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
   ;;
 Darwin)
   source <(kubectl completion zsh)

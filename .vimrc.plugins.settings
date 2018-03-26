@@ -55,7 +55,7 @@
   let NERDTreeMapActivateNode='l'
   let NERDTreeMinimalUI=1
   let NERDTreeRespectWildIgnore=1
-  let NERDTreeIgnore = ['bin/*', 'log/*', 'lib/*', 'tmp/*', 'vendor/*', 'node_modules', 'config.ru', 'Gemfile.lock']
+  let NERDTreeIgnore = ['bin/*', 'log/*', 'lib/*', 'tmp/*', 'vendor/*', 'node_modules', 'config.ru', 'Gemfile.lock', 'bower_components', 'pem']
 
   let g:user_emmet_expandabbr_key = '<Tab>'
 
