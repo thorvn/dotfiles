@@ -7,7 +7,7 @@
 	username = tho.vo
 	name = kensupermen
 [core]
-	excludesfile = $HOME/.gitignore_global
+	excludesfile = ~/.gitignore_global
 [rebase]
 	autosquash = true
 [alias]
