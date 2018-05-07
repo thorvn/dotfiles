@@ -39,6 +39,25 @@ sudo chmod +x /usr/local/bin/docker-compose
 # Install NVM
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.4/install.sh | bash
 
+########## Install Elixir and Erlang ############################
+# Ubuntu Dependencies
+sudo apt-get install build-essential git wget libssl-dev libreadline-dev libncurses5-dev zlib1g-dev m4 curl wx-common libwxgtk3.0-dev autoconf
+
+# Erlang dependencies
+sudo apt-get install libxml2-utils xsltproc fop unixodbc unixodbc-bin unixodbc-dev
+
+# Make sure install asdf
+asdf plugin-add erlang https://github.com/asdf-vm/asdf-erlang.git
+asdf plugin-add elixir https://github.com/asdf-vm/asdf-elixir.git
+
+asdf install erlang 20.3
+asdf install elixir 1.6.4
+
+asdf global erlang 20.3
+asdf global elixir 1.6.4
+
+#################################################################
+
 # Install neovim
 pip3 install neovim
 pip install neovim

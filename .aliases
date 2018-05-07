@@ -40,3 +40,4 @@ alias di='docker images'
 alias dp='docker ps'
 
 alias install="yaourt --m-arg "--skipchecksums --skippgpcheck" -Sb"
+alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
