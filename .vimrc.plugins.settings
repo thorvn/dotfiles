@@ -32,6 +32,10 @@
   imap <expr><C-j>   pumvisible() ? "\<Down>" : "\<C-j>"
   imap <expr><C-k> pumvisible() ? "\<Up>" : "\<C-k>"
 
+  " emmet
+  let g:user_emmet_install_global = 0
+  autocmd FileType html,css EmmetInstall
+
   " easymotion
   " let g:EasyMotion_smartcase = 1
   " let g:EasyMotion_keys='qwertyuiopasdfghjklzxcvbnm'
@@ -59,7 +63,7 @@
   let NERDTreeMapActivateNode='l'
   let NERDTreeMinimalUI=1
   let NERDTreeRespectWildIgnore=1
-  let NERDTreeIgnore = ['bin/*', 'log/*', 'lib/*', 'tmp/*', 'vendor/*', 'node_modules', 'config.ru', 'Gemfile.lock', 'bower_components', 'pem']
+  let NERDTreeIgnore = ['bin/*', 'log/', 'tmp/*', 'vendor/*', 'node_modules', 'config.ru', 'Gemfile.lock', 'bower_components', 'pem']
 
   " FZF
   let $FZF_DEFAULT_COMMAND = 'ag -l -g ""'
