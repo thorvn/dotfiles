@@ -59,3 +59,4 @@ jspm_packages
 .tags_sorted_by_file
 tags
 vendor
+*.map
