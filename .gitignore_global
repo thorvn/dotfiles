@@ -60,3 +60,9 @@ jspm_packages
 tags
 vendor
 *.map
+
+*www-dev/libs*
+*.#*
+GPATH
+GRTAGS
+GTAGS
