@@ -16,6 +16,7 @@ function yui_end() {
 PROMPT='%{$fg[red]%}☭ %{$fg[magenta]%}%n$RESET_COLOR\
 ⚛ $GREEN_COLOR%m$RESET_COLOR \
 %{$fg[yellow]%}$(git_prompt_info)$RESET_COLOR\
-$(yui_end) % $RESET_COLOR'
+$(yui_end) %~ $RESET_COLOR'
 
 PROMPT2='Please press Ctrl + C to exit '
+
