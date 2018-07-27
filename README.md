@@ -2,7 +2,7 @@
 
 ## Screenshot
 
-![Arch_Screenshot](arch_screenshot.png)
+![Arch_Screenshot](.arch_screenshot.png)
 
 ## Install
 To set up your development environment, run
