@@ -1,8 +1,4 @@
-;; Minimal UI
-; (scroll-bar-mode -1)
-; (tool-bar-mode   -1)
-; (tooltip-mode    -1)
-; (menu-bar-mode   -1)
+(add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 
 ;; Package configs
 (require 'package)
@@ -11,7 +7,6 @@
                          ("gnu"   . "http://elpa.gnu.org/packages/")
                          ("melpa" . "http://melpa.org/packages/")))
 (package-initialize)
-
 
 ;; Bootstrap `use-package`
 (unless (package-installed-p 'use-package)
@@ -32,20 +27,12 @@
   :config
   (evil-escape-mode 1))
 
-;; Theme
-(use-package doom-themes
-  :ensure t
-  :config
-  (load-theme 'doom-one t))
-
-;; All The Icons
-(use-package all-the-icons :ensure t)
-
-;; NeoTree
-(use-package neotree
-  :ensure t
-  :init
-  (setq neo-theme (if (display-graphic-p) 'icons 'arrow)))
+;;----------------------------------------------------------------------------
+;; Load configs for specific features and modes
+;;----------------------------------------------------------------------------
+; (require 'theme)
+; (require 'key-binding)
+; (require 'bundle)
 
 ;; Helm
 (use-package helm
@@ -68,11 +55,3 @@
   :config
   (helm-mode 1))
 
-;; Which Key
-(use-package which-key
-  :ensure t
-  :init
-  (setq which-key-separator " ")
-  (setq which-key-prefix-prefix "+")
-  :config
-  (which-key-mode 1))
