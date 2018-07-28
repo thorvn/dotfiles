@@ -69,3 +69,5 @@ workspace/
 .ngrok2/
 .skylight
 .babel.json
+.emacs.d/auto-save-list
+.emacs.d/elpa
