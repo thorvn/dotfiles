@@ -21,7 +21,6 @@ nnoremap Q <Nop><Paste>
 vnoremap < <gv
 vnoremap > >gv
 
-map <C-f> :NERDTreeToggle<CR>
 
 " Insert debug line in js file
 map <F6> <ESC>odebugger<ESC>
@@ -41,6 +40,12 @@ nnoremap <F9> za
 onoremap <F9> <C-C>za
 vnoremap <F9> zf
 
+
+nnoremap gf <C-W>F
+vnoremap gf <C-W>F
+map gv :vertical wincmd f<CR>
+
+
 " Tab navigation
 nnoremap <A-F1> 1gt
 nnoremap <A-F2> 2gt
@@ -53,6 +58,7 @@ nnoremap <A-F8> 8gt
 nnoremap <A-F9> 9gt
 nnoremap <A-F0> 10gt
 
+
 " ----------------------- Config for LEADER KEY -------------------------------
 
 " set leader to space
@@ -63,6 +69,7 @@ map <C-p> :Files<CR>
 map <leader>q <C-w>q
 map <leader>t <C-w>v
 map <leader>w :w<CR>
+map <leader>pt :NERDTreeToggle<CR>
 
 " Switch between the last two files
 nnoremap <Leader>. <C-^>
@@ -82,3 +89,5 @@ map <Leader>r :e config/routes.rb<CR>
 
 " For git
 map <Leader>gs :Gstatus<CR>
+
+map <C-j> <C-y>,
