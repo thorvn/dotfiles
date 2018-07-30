@@ -15,12 +15,26 @@ export KEYTIMEOUT=20
 export FZF_DEFAULT_COMMAND='ag -g ""'
 export EDITOR='nvim'
 
+if [ -z "$TMUX" ]; then
+  tmux -u || tmux new
+fi
+
+# Load nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
+# Load asdf
+. $HOME/.asdf/asdf.sh
+. $HOME/.asdf/completions/asdf.bash
+
 # load aliases
 source ~/.aliases
 
 # load custom function
 source ~/.functions
 
-setopt no_share_history
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+setopt no_share_history
