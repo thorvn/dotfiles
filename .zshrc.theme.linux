@@ -12,11 +12,15 @@ function precmd() {
  print -P "$RED_COLOR☭ $MAGENTA_COLOR%n$RESET_COLOR\
 ⚛ $GREEN_COLOR%m$RESET_COLOR \
 $YELLOW_COLOR$(git_prompt_info)$RESET_COLOR\
-$(yui_end) $RESET_COLOR %~ $RESET_COLOR"
+ $RED_COLOR\u276F$YELLOW_COLOR\u276F$GREEN_COLOR\u276F $RESET_COLOR %~ $RESET_COLOR"
 }
 
+# function yui_end() {
+ # print -P "$RED_COLOR\u276F$YELLOW_COLOR\u276F$GREEN_COLOR\u276F "
+# }
+
 function yui_end() {
- print -P "$RED_COLOR\u276F$YELLOW_COLOR\u276F$GREEN_COLOR\u276F"
+ print -P "\u276F\u276F\u276F "
 }
 
 PROMPT='$(yui_end) $RESET_COLOR'
