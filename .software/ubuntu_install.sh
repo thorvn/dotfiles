@@ -56,6 +56,8 @@ asdf install elixir 1.6.4
 asdf global erlang 20.3
 asdf global elixir 1.6.4
 
+# Fix error of inotify-tools
+# echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 #################################################################
 
 # Install neovim
