@@ -7,10 +7,11 @@ local GREEN_COLOR="%{$fg[green]%}"
 local RED_COLOR="%{$fg[red]%}"
 local YELLOW_COLOR="%{$fg[yellow]%}"
 local MAGENTA_COLOR="%{$fg[magenta]%}"
+local BLUE_COLOR="%{$fg[blue]%}"
 
 function precmd() {
  print -P "$RED_COLOR☭ $MAGENTA_COLOR%n$RESET_COLOR\
-⚛ $GREEN_COLOR%m$RESET_COLOR \
+$BLUE_COLOR⚛ $GREEN_COLOR%m$RESET_COLOR \
 $YELLOW_COLOR$(git_prompt_info)$RESET_COLOR\
  $RED_COLOR\u276F$YELLOW_COLOR\u276F$GREEN_COLOR\u276F $RESET_COLOR %~ $RESET_COLOR"
 }
