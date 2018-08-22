@@ -45,7 +45,6 @@ nnoremap gf <C-W>F
 vnoremap gf <C-W>F
 map gv :vertical wincmd f<CR>
 
-
 " Tab navigation
 nnoremap <A-F1> 1gt
 nnoremap <A-F2> 2gt
@@ -72,7 +71,7 @@ map <leader>w :w<CR>
 map <leader>pt :NERDTreeToggle<CR>
 
 " Switch between the last two files
-nnoremap <Leader>. <C-^>
+nnoremap <Leader><Leader> <C-^>
 
 " Shortcut to select tab
 map <Leader>1 1gt

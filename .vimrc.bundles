@@ -45,3 +45,5 @@ Plug 'mattn/emmet-vim'
 "Helpers
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'sirver/UltiSnips'
+Plug 'honza/vim-snippets'
