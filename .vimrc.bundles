@@ -38,7 +38,7 @@ Plug 'AndrewRadev/splitjoin.vim'
 Plug 'majutsushi/tagbar'
 
 " Javascript dev
-Plug 'ternjs/tern_for_vim'
+" Plug 'ternjs/tern_for_vim'
 
 Plug 'mattn/emmet-vim'
 

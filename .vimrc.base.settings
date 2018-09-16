@@ -62,8 +62,8 @@ set smartcase                         " case sensitive searching when not all lo
 " background processes
 set autoread                          " update file when changed outside of vim
 set autoindent                        " copy indentation from the previous line for new line
-"set clipboard=unnamed                 " use native clipboard
-set clipboard+=unnamedplus
+set clipboard=unnamed                 " use native clipboard
+"set clipboard+=unnamedplus
 set history=200                       " store last 200 commands as history
 set lazyredraw                        " no unneeded redraws
 set nobackup                          " don't save backups

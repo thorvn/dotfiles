@@ -53,7 +53,7 @@ let g:UltiSnipsExpandTrigger="<C-tab>"
 let g:UltiSnipsJumpForwardTrigger="<C-b>"
 let g:UltiSnipsJumpBackwardTrigger="<C-z>"
 let g:UltiSnipsSnippetsDir="~/.snippets/"
-inoremap <Tab> <c-r>=UltiSnips#ExpandSnippet()<cr>
+inoremap <C-Space> <c-r>=UltiSnips#ExpandSnippet()<cr>
 
 " vim-javascript
 let g:javascript_plugin_flow = 1

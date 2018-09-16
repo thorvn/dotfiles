@@ -23,13 +23,10 @@ vnoremap > >gv
 
 
 " Insert debug line in js file
-map <F6> <ESC>odebugger<ESC>
-
-" Insert debug line in js file
 map <F7> <ESC>oconsole.log();<ESC>
 
 " Compile and run C++
-" map <F8> :w <CR> :!gcc % -o %< && ./%< <CR>
+map <F6> :w <CR> :!gcc % -o %< && ./%< <CR>
 
 " targbar
 map <F8> :TagbarToggle<CR>
