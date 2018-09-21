@@ -19,6 +19,10 @@ echo "bindkey '^ ' autosuggest-accept" >> $ZSH_CUSTOM/plugins/zsh-autosuggestion
 # Change default shell to zsh
 chsh -s /bin/zsh
 
+
+# https://misc.flogisoft.com/bash/tip_colors_and_formatting
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
+
 # Build tmux from source
 # sudo apt-get install autogen automake libevent-dev libncurses5-dev
 
