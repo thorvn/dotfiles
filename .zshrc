@@ -14,6 +14,7 @@ fi
 export KEYTIMEOUT=20
 export FZF_DEFAULT_COMMAND='ag -g ""'
 export EDITOR='nvim'
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
 
 if [ -z "$TMUX" ]; then
   tmux -u || tmux new
@@ -38,3 +39,8 @@ source ~/.functions
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 setopt no_share_history
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+export PATH="/usr/local/sbin:$PATH"
+export PATH=$PATH:/usr/local/mysql/bin
