@@ -1,7 +1,8 @@
+alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 git clone --bare https://github.com/kensupermen/dotfiles $HOME/.dotfiles
 
 mkdir -p .dotfiles-backup
-config checkout
+config checkout -f
 if [ $? = 0 ]; then
   echo "Checked out config.";
   else
@@ -9,7 +10,7 @@ if [ $? = 0 ]; then
     config checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv {} .dotfiles-backup/{}
 fi;
 
-config checkout
+config checkout -f
 config config status.showUntrackedFiles no
 
 if [ ! -d "$HOME/.config/nvim" ]; then
@@ -24,5 +25,4 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 # Neovim dependencies
 sudo apt-get install python-dev python-pip python3-dev python3-pip
 
-source $HOME/.zshrc
 echo "Everything done!!!"
