@@ -1,14 +1,15 @@
 [push]
-	default = current
+  default = current
 [color]
-	ui = auto
+  ui = auto
 [user]
-	email = votantho93@gmail.com
-	username = tho.vo
-	name = kensupermen
+  email = votantho93@gmail.com
+  username = tho.vo
+  name = tho.vo
 [core]
-	excludesfile = ~/.gitignore_global
+  excludesfile = ~/.gitignore_global
+  editor = vim
 [rebase]
-	autosquash = true
+  autosquash = true
 [alias]
-	tree = log --oneline --decorate --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+  tree = log --oneline --decorate --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
