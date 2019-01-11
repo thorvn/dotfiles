@@ -40,7 +40,7 @@ source ~/.functions
 
 setopt no_share_history
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
 export PATH="/usr/local/sbin:$PATH"
 export PATH=$PATH:/usr/local/mysql/bin
+export VISUAL="vim"
+export EDITOR="vim"
