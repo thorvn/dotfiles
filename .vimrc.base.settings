@@ -6,7 +6,7 @@ filetype plugin indent on             " try to recognise filetype and load plugi
 " interface
 set background=dark                   " tell vim what the background color looks like
 set colorcolumn=120                   " show a column at 100 chars
-"set cursorline                        " highlight current line
+set cursorline                        " highlight current line
 "set laststatus=2                      " enable airline on open
 set noshowmode                        " don't show mode as airline already does
 set number                            " show line numbers
@@ -39,6 +39,7 @@ hi FoldColumn ctermfg=216
 hi FoldColumn ctermbg=black
 hi Folded ctermfg=216
 hi Folded ctermbg=black
+au FileType ruby setlocal foldmethod=indent foldnestmax=4 foldlevelstart=1
 
 " text appearance
 set list                              " show invisible characters

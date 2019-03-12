@@ -1,11 +1,13 @@
 " theme settings
-colorscheme base16-ocean
+" colorscheme base16-ocean
+colorscheme onedark
+let g:onedark_terminal_italics = 1
 
 " airline
 "let g:airline_powerline_fonts = 1
 "let g:airline_theme='base16'
 let g:lightline = {
-    \ 'colorscheme': 'jellybeans',
+    \ 'colorscheme': 'onedark',
     \ }
 
 " gitgutter
