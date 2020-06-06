@@ -4,7 +4,7 @@
 
 ### MACOS
 
-![Mac_Iterm2](.mac_iterm2.png)
+![Mac_Iterm2](.mac-iterm2.png)
 
 ### ARCH LINUX
 
