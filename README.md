@@ -2,6 +2,12 @@
 
 ## Screenshot
 
+### MACOS
+
+![Mac_Iterm2](.mac_iterm2.png)
+
+### ARCH LINUX
+
 ![Arch_Screenshot](.arch_screenshot.png)
 
 ## Install
