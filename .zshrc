@@ -26,15 +26,14 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
 # Load asdf
-. $HOME/.asdf/asdf.sh
-. $HOME/.asdf/completions/asdf.bash
+# . $HOME/.asdf/asdf.sh
+#. $HOME/.asdf/completions/asdf.bash
 
 # load aliases
 source ~/.aliases
 
 # load custom function
 source ~/.functions
-
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -44,3 +43,4 @@ export PATH="/usr/local/sbin:$PATH"
 export PATH=$PATH:/usr/local/mysql/bin
 export VISUAL="vim"
 export EDITOR="vim"
+export ZSH_DISABLE_COMPFIX='true'

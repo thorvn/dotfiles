@@ -37,4 +37,6 @@ gem install lolcat
 # linked apps
 brew linkapps
 
+# Fix some error
+# compaudit | xargs chmod g-w
 echo "**Memory Clean** ..."
