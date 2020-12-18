@@ -14,22 +14,6 @@ fi;
 config checkout -f
 config config status.showUntrackedFiles no
 
-if [ ! -d "$HOME/.config/nvim" ]; then
-  mkdir -p $HOME/.config/nvim
-fi
-cp $HOME/.init.vim $HOME/.config/nvim/init.vim
-
-# Install vim plug for neovim
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-      https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-# Neovim dependencies
-brew install python3 # install python3 (required for neovim)
-# Install pip3
-curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-python get-pip.py --user
-
-# config neovim with python
-pip3 install --user neovim
+# Load Install Vim Scripts
 
 echo "Everything done!!!"

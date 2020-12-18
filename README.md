@@ -16,7 +16,8 @@ To set up your development environment, run
 
 ```bash
   alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-  curl -sSL https://raw.githubusercontent.com/kensupermen/dotfiles/master/.install_dotfiles.sh | sh
+  # On MacOS
+  curl -sSL https://raw.githubusercontent.com/kensupermen/dotfiles/master/.basic_install_macos.sh.sh | sh
 ```
 
 ## Install FONT
