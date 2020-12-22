@@ -16,9 +16,9 @@ export FZF_DEFAULT_COMMAND='ag -g ""'
 export EDITOR='nvim'
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
 
-# if [ -z "$TMUX" ]; then
-#   tmux -u || tmux new
-# fi
+if [ -z "$TMUX" ]; then
+  tmux -u || tmux new
+fi
 
 # Load nvm
 # export NVM_DIR="$HOME/.nvm"
