@@ -10,40 +10,27 @@
 
 ![Arch_Screenshot](.arch_screenshot.png)
 
+## Features
+
+- Node version manager: fnm
+- Ruby version manager: rbenv
+- Recursively searches: ripgrep
+- Shell: zsh & prezto framework
+- Text editor: neovim
+- Others: tmux, alacritty...
+
 ## Install
 
 To set up your development environment, run
 
 ```bash
   alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-  # On MacOS
-  curl -sSL https://raw.githubusercontent.com/kensupermen/dotfiles/master/.basic_install_macos.sh.sh | sh
+  curl -sSL https://raw.githubusercontent.com/th0r/dotfiles/master/.scripts/install.sh | sh
 ```
 
-## Install FONT
+## Notes
 
-```bash
-brew tap homebrew/cask-fonts
-brew cask install font-hack-nerd-font
-```
+### Find colorschemes for iterm2
 
-## Install schema for iterm2
-
-### Options 1
-
-- Download: https://iterm2colorschemes.com/
-- Install DRACULA schema
-
-### Options 2
-
-- Install https://github.com/MartinSeeler/iterm2-material-design
-
-## NEOFETCH
-
-```
-brew install neofetch
-```
-
-## Todo
-
-- [ ] Add README how to use
+- https://iterm2colorschemes.com/
+- https://github.com/MartinSeeler/iterm2-material-design

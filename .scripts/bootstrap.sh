@@ -1,6 +1,5 @@
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-
-git clone --bare https://github.com/kensupermen/dotfiles $HOME/.dotfiles
+git clone --bare https://github.com/th0r/dotfiles $HOME/.dotfiles
 
 mkdir -p .dotfiles-backup
 config checkout -f
@@ -14,6 +13,4 @@ fi;
 config checkout -f
 config config status.showUntrackedFiles no
 
-# Load Install Vim Scripts
-
-echo "Everything done!!!"
+echo "Bootstrap done!!!"
