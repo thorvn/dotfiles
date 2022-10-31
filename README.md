@@ -17,7 +17,11 @@
 - Recursively searches: ripgrep
 - Shell: zsh & prezto framework
 - Text editor: neovim
-- Others: tmux, alacritty...
+- Dotfiles manager: stow
+- Terminal: kitty
+- Tiling window manager: Yabai + skhd + sketchybar
+
+
 
 ## Install
 

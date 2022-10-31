@@ -1,14 +1,3 @@
-Music/
-Downloads/
-Library/
-Pictures/
-Public/
-Movies/
-Documents/
-Desktop/
-Applications/
-Creative Cloud Files/
-VirtualBox VMs/
 .ssh/
 .oh-my-zsh/
 .node-gyp/
@@ -26,7 +15,6 @@ VirtualBox VMs/
 .viminfo
 .cache/
 .cargo/
-.config/
 .docker/
 .dotfiles/
 .fzf.bash

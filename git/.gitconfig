@@ -1,0 +1,20 @@
+[push]
+  default = current
+[color]
+  ui = true
+  status = auto
+[user]
+  email = votantho93@gmail.com
+  name = Tho Vo
+[core]
+  excludesfile = ~/.gitignore_global
+  editor = vim
+[rebase]
+  autosquash = true
+[merge]
+  autosquash = true
+  tool=vimdiff
+[alias]
+  tree = log --oneline --decorate --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+[status]
+	showUntrackedFiles = all
