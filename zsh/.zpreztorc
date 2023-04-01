@@ -42,6 +42,7 @@ zstyle ':prezto:load' pmodule \
   'prompt' \
   'autosuggestions' \
   'tmux' \
+  'fzf-tab' \
   'git'
 
 #

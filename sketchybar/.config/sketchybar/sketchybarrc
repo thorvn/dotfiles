@@ -33,6 +33,8 @@ bar=(
   margin=-2
 )
 
+
+# Setting up the general bar appearance and default values
 sketchybar --bar "${bar[@]}"
 
 # Setting up default values

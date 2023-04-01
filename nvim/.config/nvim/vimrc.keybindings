@@ -55,6 +55,7 @@ nnoremap <A-F9> 9gt
 nnoremap <A-F0> 10gt
 
 
+
 " ----------------------- Config for LEADER KEY -------------------------------
 
 " set leader to space

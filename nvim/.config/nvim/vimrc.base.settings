@@ -86,9 +86,9 @@ if !&readonly
 endif
 
 " Plugins
-call plug#begin()
-source ~/.vimrc.bundles
+"call plug#begin()
+"source ~/.vimrc.bundles
 
 " add plugins to &runtimepath
-call plug#end()
+"call plug#end()
 filetype on

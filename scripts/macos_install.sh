@@ -6,6 +6,7 @@ brew install neovim
 brew install --cask sf-symbols
 brew install jq
 brew install switchaudio-osx
+brew install bat
 
 # Brew Cask
 
