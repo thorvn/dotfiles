@@ -17,14 +17,21 @@ alias gca="git commit --amend"
 alias greset="git reset --hard && git clean -f"
 alias gc="git commit -m"
 alias gws="git status -s"
-alias ghide="git update-index --assume-unchanged"
-alias gunhide="git update-index --no-assume-unchanged"
+alias ghide="git update-index --assume-unchanged --skip-work-tree"
+alias gunhide="git update-index --no-assume-unchanged --no-skip-worktree"
 alias ghidels="git ls-files -v|grep '^h'"
+alias gfa="git fetch --all --prune"
 
 ########################################
 
 alias m="rails db:migrate"
 alias b="bundle install -j10"
+alias rc="rails db:create"
+alias rd="rails db:drop"
+alias rr="rails db:reset"
+alias rs="bundle exec rails s"
+alias rails="bundle exec rails"
+alias sk="RAILS_MAX_THREADS=20 bundle exec sidekiq -C "
 
 alias l.="ls -d .*"
 alias ..='cd ..'
@@ -38,11 +45,6 @@ alias crashrm='sudo rm /var/crash/*'
 alias crashls='ls /var/crash/*'
 alias msf='msfconsole'
 
-alias rs="rails s -u webrick"
-alias rc="rails db:create"
-alias rd="rails db:drop"
-alias rr="rails db:reset"
-
 alias cc="tmux show-buffer | xclip -selection clipboard -i"
 
 alias drmi='docker rmi $(docker images -f "dangling=true" -q) -f'
@@ -53,3 +55,6 @@ alias dp='docker ps'
 # alias install="yaourt --m-arg "--skipchecksums --skippgpcheck" -Sb"
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias ag='ag --path-to-ignore ~/.ignore'
+
+# Software replacement
+alias ls='eza --icons'

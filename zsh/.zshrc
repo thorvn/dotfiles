@@ -33,14 +33,14 @@ export PATH=$PATH:$HOME/.arcanist/bin
 export PATH=$PATH:$HOME/go/bin
 export PATH=$PATH:$HOME/.local/bin
 export PATH="/opt/homebrew/opt/php@8.0/bin:$PATH"
+export XDG_CONFIG_HOME="$HOME/.config"
 
-#if [ -z "$TMUX" ]; then
-#  tmux -u || tmux new
-#fi
+if [ -z "$TMUX" ]; then
+ tmux -u || tmux new -c ~
+fi
 
 # Load FNM
 eval "$(fnm env --use-on-cd)"
-#eval "$(rbenv init -)"
 
 # load aliases
 source ~/.aliases
