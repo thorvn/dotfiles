@@ -67,4 +67,10 @@ GPATH
 GRTAGS
 GTAGS
 
+
 *idea
+.node-version
+rome.json
+.eslintrc.json
+public/*.ttc
+.solargraph.yml
