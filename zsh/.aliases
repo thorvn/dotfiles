@@ -57,4 +57,4 @@ alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias ag='ag --path-to-ignore ~/.ignore'
 
 # Software replacement
-alias ls='eza --icons'
+# alias ls='eza --icons'
