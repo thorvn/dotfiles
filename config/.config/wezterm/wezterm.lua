@@ -8,7 +8,7 @@ local config = wezterm.config_builder()
 
 -- For example, changing the color scheme:
 -- config.color_scheme = 'GJM (terminal.sexy)'
-config.color_scheme = 'Gogh (Gogh)'
+config.color_scheme = 'Ayu Mirage (Gogh)'
 
 config.font = wezterm.font 'JetBrains Mono'
 
