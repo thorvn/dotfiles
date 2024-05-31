@@ -12,16 +12,14 @@
 
 ## Features
 
-- Node version manager: fnm
-- Ruby version manager: rbenv
+- Ruby/Node version manager: asdf
 - Recursively searches: ripgrep
-- Shell: zsh & prezto framework
+- Shell: fish shell & oh my fish framework
 - Text editor: neovim
 - Dotfiles manager: stow
-- Terminal: kitty
+- Terminal: WezTerm
 - Tiling window manager: Yabai + skhd + sketchybar
-
-
+- Terminal multiplexer: Tmux
 
 ## Install
 
