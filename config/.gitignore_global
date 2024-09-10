@@ -74,3 +74,4 @@ rome.json
 .eslintrc.json
 public/*.ttc
 .solargraph.yml
+.tool-versions

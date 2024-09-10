@@ -5,19 +5,26 @@
   status = auto
 [user]
   email = votantho93@gmail.com
-  name = Tho Vo
+  name = thorvn
 [core]
   excludesfile = ~/.gitignore_global
   editor = vim
-	pager = git-split-diffs --color | less -RFX
+	pager = delta
+[interactive]
+    diffFilter = delta --color-only
 [rebase]
   autosquash = true
 [merge]
   autosquash = true
   tool=vimdiff
+  conflictstyle = diff3
 [alias]
   tree = log --oneline --decorate --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
   committree = log --oneline --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
   squash-all = "!f(){ git reset $(git commit-tree HEAD^{tree} \"$@\");};f"
 [status]
 	showUntrackedFiles = all
+[delta]
+    navigate = true    # use n and N to move between diff sections
+    side-by-side = true
+    dark = true

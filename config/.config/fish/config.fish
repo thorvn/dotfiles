@@ -5,11 +5,6 @@ set -gx EDITOR nvim
 set -gx XDG_CONFIG_HOME $HOME/.config
 
 # if which asdf > /dev/null; status --is-interactive; and source (brew --prefix asdf)/asdf.fish; end
-if not set -q TMUX
-    set -g TMUX tmux new-session -d -s base
-    eval $TMUX
-    tmux attach-session -d -t base
-end
 
 if status is-interactive
   cd $HOME
@@ -30,3 +25,8 @@ if not string match -q -- $PNPM_HOME $PATH
   set -gx PATH "$PNPM_HOME" $PATH
 end
 # pnpm end
+
+history delete --case-sensitive --exact "z"
+history delete --case-sensitive --exact "cd"
+history delete --case-sensitive --exact "gss"
+history delete --case-sensitive --exact "exit"
