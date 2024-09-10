@@ -1,27 +1,63 @@
-# Install Homebrew
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew update
-brew doctor
+#!/bin/bash
 
-# Install fish shell
-brew install fish
-chsh -s $(which fish)
+# Exit on error
+set -e
 
-# Install prezto
-# git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+echo "Checking fish shell..."
+if ! command -v fish &> /dev/null; then
+    echo "Installing fish shell..."
+    brew install fish
+    if [ "$SHELL" != "$(which fish)" ]; then
+        echo "Changing default shell to fish..."
+        chsh -s $(which fish)
+    fi
+else
+    echo "Fish shell is already installed. Skipping."
+fi
 
-brew install nvim
-brew install starship
-brew install fzf
-brew install zoxide
-brew install neovim
-brew install ripgrep
-brew install eza
-brew install bat
+echo "Checking CLI tools..."
+cli_tools=(
+    "nvim"
+    "starship"
+    "fzf"
+    "zoxide"
+    "neovim"
+    "ripgrep"
+    "eza"
+    "bat"
+    "mysql-client@8.4"
+    "pnpm"
+    "asdf"
+    "protobuf"
+    "git-delta"
+    "lazygit"
+    "stow"
+    "tmux"
+)
 
-brew install tmux
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+for tool in "${cli_tools[@]}"; do
+    if brew list "$tool" &>/dev/null; then
+        echo "$tool is already installed. Skipping."
+    else
+        echo "Installing $tool..."
+        brew install "$tool"
+    fi
+done
 
-# Fix some error
-# compaudit | xargs chmod g-w
-echo "**Memory Clean** ..."
+echo "Checking GUI applications..."
+if brew list --cask hiddenbar &>/dev/null; then
+    echo "HiddenBar is already installed. Skipping."
+else
+    echo "Installing HiddenBar..."
+    brew install --cask hiddenbar
+fi
+
+echo "Checking tmux plugin manager..."
+if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
+    echo "Installing tmux plugin manager..."
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+else
+    echo "Tmux plugin manager is already installed. Skipping."
+fi
+
+echo "Software installation complete!"
