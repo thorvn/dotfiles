@@ -8,6 +8,7 @@ This repository contains my personal dotfiles and system configuration for macOS
 - `.software/`: Contains installation scripts for software and tools.
 - `config/`: Contains configuration files for various tools and applications.
 - `install.sh`: Main installation script to set up the dotfiles and required software.
+- `store_password.sh`: Script to securely store the sudo password in the macOS Keychain.
 
 ## Installation
 
@@ -17,6 +18,8 @@ To install and set up the dotfiles, follow these steps:
 
    ```
    git clone https://github.com/yourusername/dotfiles.git ~/.dotfiles
+   cd .dotfiles
+   git config --local status.showUntrackedFiles no
    ```
 
 2. Navigate to the dotfiles directory:
@@ -34,8 +37,19 @@ This script will:
 
 1. Install Homebrew if it's not already installed.
 2. Install GNU Stow for managing symlinks.
-3. Run the mac_install.sh script to install required software.
-4. Use GNU Stow to symlink the configuration files to their appropriate locations.
+3. Prompt you to store your sudo password securely in the macOS Keychain.
+4. Run the mac_install.sh script to install required software.
+5. Use GNU Stow to symlink the configuration files to their appropriate locations.
+
+## Secure Password Storage
+
+To avoid frequent password prompts during installation and updates, this dotfiles setup includes a feature to securely store your sudo password in the macOS Keychain. Here's how it works:
+
+1. The `store_password.sh` script prompts you for your sudo password.
+2. It stores the password securely in the macOS Keychain under the name "SudoPassword".
+3. The installation scripts retrieve the password from the Keychain when needed, eliminating the need for manual password entry.
+
+This feature ensures that your password is stored securely and is only accessible by your user account. If you need to update or remove the stored password, you can use the Keychain Access application and look for the "SudoPassword" item under the "login" keychain.
 
 ## Idempotent Installation
 
