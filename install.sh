@@ -36,11 +36,16 @@ bash .software/mac_install.sh
 
 # Use stow to symlink dotfiles
 echo "Symlinking dotfiles..."
-stow -v -R -t $HOME config
+stow $HOME config
+stow $HOME fish
+stow $HOME wezterm
 
 # Create local configuration files if they don't exist
 touch $HOME/.config/fish/config.local.fish
 touch $HOME/.config/fish/alias.fish
+
+
+ghide fish/.config/fish/config.local.fish
 
 echo "Dotfiles installation complete!"
 echo "Please restart your terminal or run 'source ~/.config/fish/config.fish' to apply the changes."

@@ -6,6 +6,7 @@ fish_add_path $HOME/.local/bin
 # Set environment variables
 set -gx EDITOR nvim
 set -gx XDG_CONFIG_HOME $HOME/.config
+# set -gx STARSHIP_CONFIG $HOME/startship.toml
 
 # Change to home directory in interactive sessions
 if status is-interactive
@@ -16,6 +17,8 @@ end
 starship init fish | source
 fzf --fish | source
 zoxide init fish | source
+
+thefuck --alias | source
 
 # Source asdf
 source /opt/homebrew/opt/asdf/libexec/asdf.fish
@@ -63,22 +66,22 @@ function clean_fish_history
 
     # Remove common commands
     for cmd in $common_cmds
-        history delete --case-sensitive --exact $cmd
+        history delete --case-sensitive --exact --yes $cmd
     end
 
     # Remove sensitive commands
     for pattern in $sensitive_cmds
-        history delete --case-sensitive --contains $pattern
+        history delete --case-sensitive --contains --yes $pattern
     end
 
     # Limit history to last 1000 items
     set -l overflow (math (count (history search --show-time --max-count=0 '')) - 1000)
     if test $overflow -gt 0
-        history delete --exact --case-sensitive (history search --show-time --max-count=$overflow '' | string split ' ' -f3-)
+        history delete --exact --case-sensitive --yes (history search --show-time --max-count=$overflow '' | string split ' ' -f3-)
     end
 end
 
-# Run history cleanup on shell exit
+# Run history cleanup on shell exit automatically
 function on_exit --on-event fish_exit
     clean_fish_history
 end
