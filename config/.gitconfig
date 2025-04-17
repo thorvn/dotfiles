@@ -9,7 +9,7 @@
 [core]
   excludesfile = ~/.gitignore_global
   editor = vim
-	pager = delta
+  pager = delta
 [interactive]
     diffFilter = delta --color-only
 [rebase]
@@ -21,7 +21,8 @@
 [fetch]
   prune = true
 [alias]
-  tree = log --oneline --all --decorate --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+  treeall = log --oneline --all --decorate --graph --pretty=format:'%Cred%h%Creset %C(auto, bold yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+  tree = log --oneline --decorate --graph --pretty=format:'%Cred%h%Creset %C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
   committree = log --oneline --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
   squash-all = "!f(){ git reset $(git commit-tree HEAD^{tree} \"$@\");};f"
 [status]
@@ -30,5 +31,6 @@
   navigate = true    # use n and N to move between diff sections
   side-by-side = true
   dark = true
+  relative-paths = true
 [url "git@github.com:"]
 	insteadof = https://github.com/

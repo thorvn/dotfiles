@@ -11,9 +11,9 @@ fish_add_path $HOME/.local/bin
 # set -gx STARSHIP_CONFIG $HOME/startship.toml
 
 # Change to home directory in interactive sessions
-if status is-interactive
-  cd $HOME
-end
+# if status is-interactive
+#   cd $HOME
+# end
 
 # Initialize tools
 starship init fish | source
@@ -89,6 +89,6 @@ end
 # Uncomment the following line to clean history on shell startup
 # clean_fish_history
 
-if test -z "$ZELLIJ"
-  zellij
-end
+# Added by OrbStack: command-line tools and integration
+# This won't be added again if you remove it.
+source ~/.orbstack/shell/init2.fish 2>/dev/null || :
