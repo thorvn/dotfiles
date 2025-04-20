@@ -1,7 +1,7 @@
 # Dotfiles
 
 This repository contains my personal dotfiles and system configuration for macOS. It's designed to provide a quick and easy setup for a new machine or to keep multiple machines in sync.
-![Mac_Iterm2](.mac-iterm2.png)
+![Mac Screenshot](.mac-screenshot.png)
 
 ## Directory Structure
 
@@ -14,42 +14,41 @@ This repository contains my personal dotfiles and system configuration for macOS
 
 To install and set up the dotfiles, follow these steps:
 
-1. Clone this repository to your home directory:
+1. Clone this repository:
 
-   ```
-   git clone https://github.com/yourusername/dotfiles.git ~/.dotfiles
-   cd .dotfiles
+   ```bash
+   # Choose a location for the clone, e.g., ~/src
+   git clone https://github.com/yourusername/dotfiles.git
+   cd dotfiles # Or the directory name you cloned into
+   # Optional: Prevent git from showing all untracked files in parent dirs
    git config --local status.showUntrackedFiles no
    ```
 
-2. Navigate to the dotfiles directory:
+2. Authenticate `sudo` access:
 
+   Before running the installation script, you need to authenticate `sudo`. This allows the script to install system-level tools (like Homebrew and its packages) without prompting you repeatedly for your password.
+
+   ```bash
+   sudo -v
    ```
-   cd ~/.dotfiles
-   ```
+
+   Enter your macOS login password when prompted. This will cache your `sudo` credentials for a short period.
 
 3. Run the installation script:
-   ```
+
+   Now, run the main installer script:
+
+   ```bash
    ./install.sh
    ```
 
 This script will:
 
-1. Install Homebrew if it's not already installed.
+1. Check for Homebrew and install it non-interactively if missing.
 2. Install GNU Stow for managing symlinks.
-3. Prompt you to store your sudo password securely in the macOS Keychain.
-4. Run the mac_install.sh script to install required software.
-5. Use GNU Stow to symlink the configuration files to their appropriate locations.
-
-## Secure Password Storage
-
-To avoid frequent password prompts during installation and updates, this dotfiles setup includes a feature to securely store your sudo password in the macOS Keychain. Here's how it works:
-
-1. The `store_password.sh` script prompts you for your sudo password.
-2. It stores the password securely in the macOS Keychain under the name "SudoPassword".
-3. The installation scripts retrieve the password from the Keychain when needed, eliminating the need for manual password entry.
-
-This feature ensures that your password is stored securely and is only accessible by your user account. If you need to update or remove the stored password, you can use the Keychain Access application and look for the "SudoPassword" item under the "login" keychain.
+3. Run the `mac_install.sh` script to install required software via Homebrew.
+4. Use GNU Stow to symlink the configuration files from the `config/`, `fish/`, and `wezterm/` directories into your home directory (`~`).
+5. Create local Fish configuration files (`~/.config/fish/config.local.fish`, `~/.config/fish/alias.fish`) if they don't exist.
 
 ## Idempotent Installation
 
@@ -67,6 +66,7 @@ This dotfiles setup includes configurations and installations for:
 - Zoxide: A smarter cd command.
 - Various CLI tools: ripgrep, eza, bat, git-delta, lazygit, etc.
 - HiddenBar: A menu bar icon manager for macOS.
+- Package Manager: mise
 
 ### Enhanced History Management
 

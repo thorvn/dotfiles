@@ -3,13 +3,29 @@
 # Exit on error
 set -e
 
+# Function to get sudo password from Keychain
+get_sudo_password() {
+    security find-generic-password -a "$USER" -s "SudoPassword" -w 2>/dev/null
+}
+
+# Function to run command with sudo using stored password
+run_sudo() {
+    local password=$(get_sudo_password)
+    if [ -z "$password" ]; then
+        echo "Sudo password not found in Keychain. Please run store_password.sh first."
+        exit 1
+    fi
+    echo "$password" | sudo -S "$@"
+}
+
 echo "Checking fish shell..."
 if ! command -v fish &> /dev/null; then
     echo "Installing fish shell..."
     brew install fish
     if [ "$SHELL" != "$(which fish)" ]; then
         echo "Changing default shell to fish..."
-        chsh -s $(which fish)
+        run_sudo bash -c "echo $(which fish) >> /etc/shells"
+        run_sudo chsh -s $(which fish) $USER
     fi
 else
     echo "Fish shell is already installed. Skipping."
@@ -25,14 +41,12 @@ cli_tools=(
     "ripgrep"
     "eza"
     "bat"
-    "mysql-client@8.4"
     "pnpm"
-    "asdf"
-    "protobuf"
     "git-delta"
     "lazygit"
     "stow"
     "tmux"
+    "stats"
 )
 
 for tool in "${cli_tools[@]}"; do
@@ -58,6 +72,18 @@ if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 else
     echo "Tmux plugin manager is already installed. Skipping."
+fi
+
+echo "Checking mise..."
+if ! command -v mise &> /dev/null; then
+    echo "Installing mise..."
+    curl https://mise.run | sh
+fi
+
+echo "Checking font..."
+if ! command -v font-iosevka-term-nerd-font &> /dev/null; then
+    echo "Installing font..."
+    brew install font-iosevka-term-nerd-font
 fi
 
 echo "Software installation complete!"

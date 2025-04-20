@@ -7,7 +7,9 @@ echo "Starting dotfiles installation..."
 # Check for Homebrew and install if not found
 if ! command -v brew &>/dev/null; then
     echo "Homebrew not found. Installing Homebrew..."
+    export NONINTERACTIVE=1
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    unset NONINTERACTIVE
     eval "$(/opt/homebrew/bin/brew shellenv)"
 else
     echo "Homebrew already installed. Skipping..."
@@ -24,26 +26,21 @@ else
     echo "GNU Stow already installed. Skipping..."
 fi
 
-# Store sudo password in Keychain
-echo "We need to store your sudo password in the macOS Keychain for seamless installation."
-echo "This will allow the installation script to run sudo commands without prompting for a password each time."
-echo "Your password will be securely stored in the Keychain and can only be accessed by your user account."
-bash store_password.sh
-
 # Run the software installation script
 echo "Running software installation script..."
 bash .software/mac_install.sh
 
 # Use stow to symlink dotfiles
 echo "Symlinking dotfiles..."
-stow $HOME config
-stow $HOME fish
-stow $HOME wezterm
+stow -vSt $HOME config
+stow -vSt $HOME fish/
+stow -vSt $HOME wezterm
 
 # Create local configuration files if they don't exist
 touch $HOME/.config/fish/config.local.fish
 touch $HOME/.config/fish/alias.fish
 
+fish ./macos_config.fish
 
 ghide fish/.config/fish/config.local.fish
 
