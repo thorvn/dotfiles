@@ -34,3 +34,5 @@
   relative-paths = true
 [url "git@github.com:"]
 	insteadof = https://github.com/
+[pull]
+	rebase = true

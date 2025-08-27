@@ -20,6 +20,7 @@ starship init fish | source
 fzf --fish | source
 zoxide init fish | source
 mise activate fish | source
+direnv hook fish | source
 source "$HOME/.cargo/env.fish"
 
 # Source aliases if the file exists
