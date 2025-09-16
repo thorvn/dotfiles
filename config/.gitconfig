@@ -17,7 +17,7 @@
 [merge]
   autosquash = true
   tool=vimdiff
-  conflictstyle = diff3
+  conflictstyle = zdiff3
 [fetch]
   prune = true
 [alias]
@@ -27,11 +27,18 @@
   squash-all = "!f(){ git reset $(git commit-tree HEAD^{tree} \"$@\");};f"
 [status]
 	showUntrackedFiles = all
+[include]
+  path = ~/delta/themes.gitconfig
 [delta]
+  features = zebra-dark
+  true-color = always
   navigate = true    # use n and N to move between diff sections
   side-by-side = true
   dark = true
   relative-paths = true
+  syntax-theme = Dracula
+  hyperlinks = true
+  hyperlinks-file-link-format = "vscode://file/{path}:{line}"
 [url "git@github.com:"]
 	insteadof = https://github.com/
 [pull]

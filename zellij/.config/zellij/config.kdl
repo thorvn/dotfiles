@@ -4,17 +4,19 @@ keybinds {
         // uncomment this and adjust key if using copy_on_select=false
         // bind "Alt c" { Copy; }
         unbind "Ctrl q"
-        bind "Alt 1" { GoToTab 1; }
-        bind "Alt 2" { GoToTab 2; }
-        bind "Alt 3" { GoToTab 3; }
-        bind "Alt 4" { GoToTab 4; }
+        bind "F2" { GoToTab 1; }
+        bind "F3" { GoToTab 2; }
+        bind "F4" { GoToTab 3; }
+        bind "F5" { GoToTab 4; }
+        bind "F6" { GoToTab 5; }
     }
     locked {
         bind "Ctrl g" { SwitchToMode "Normal"; }
-        bind "Alt 1" { GoToTab 1; }
-        bind "Alt 2" { GoToTab 2; }
-        bind "Alt 3" { GoToTab 3; }
-        bind "Alt 4" { GoToTab 4; }
+        bind "F2" { GoToTab 1; }
+        bind "F3" { GoToTab 2; }
+        bind "F4" { GoToTab 3; }
+        bind "F5" { GoToTab 4; }
+        bind "F6" { GoToTab 5; }
     }
     resize {
         bind "Ctrl n" { SwitchToMode "Normal"; }
@@ -47,13 +49,14 @@ keybinds {
         bind "c" { SwitchToMode "RenamePane"; PaneNameInput 0;}
     }
     move {
-        bind "Ctrl h" { SwitchToMode "Normal"; }
-        bind "n" "Tab" { MovePane; }
-        bind "p" { MovePaneBackwards; }
-        bind "h" "Left" { MovePane "Left"; }
-        bind "j" "Down" { MovePane "Down"; }
-        bind "k" "Up" { MovePane "Up"; }
-        bind "l" "Right" { MovePane "Right"; }
+        unbind "Ctrl h"
+        // bind "Ctrl h" { SwitchToMode "Normal"; }
+        // bind "n" "Tab" { MovePane; }
+        // bind "p" { MovePaneBackwards; }
+        // bind "h" "Left" { MovePane "Left"; }
+        // bind "j" "Down" { MovePane "Down"; }
+        // bind "k" "Up" { MovePane "Up"; }
+        // bind "l" "Right" { MovePane "Right"; }
     }
     tab {
         bind "Ctrl t" { SwitchToMode "Normal"; }
