@@ -234,6 +234,15 @@ automatically-unhide-macos-hidden-apps = false
     [[on-window-detected]]
       if.app-id = 'com.apple.Dictionary'
       run = ['layout floating']
+    [[on-window-detected]]
+      if.app-id = 'com.apple.podcasts'
+      run = ['layout floating']
+    [[on-window-detected]]
+      if.app-id = 'app.zen-browser.zen'
+      run = ['layout floating']
+    [[on-window-detected]]
+      if.app-id = 'com.apple.TextEdit'
+      run = ['layout floating']
 
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
