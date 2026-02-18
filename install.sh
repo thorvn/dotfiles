@@ -33,16 +33,40 @@ bash .software/mac_install.sh
 # Use stow to symlink dotfiles
 echo "Symlinking dotfiles..."
 stow -vSt $HOME config
-stow -vSt $HOME fish/
-stow -vSt $HOME wezterm
+stow -vSt $HOME fish
+
+# Stow active tool configurations
+# Add/remove packages below based on what you're currently using
+stow -vSt $HOME karabiner
+stow -vSt $HOME lazygit
+stow -vSt $HOME lazyvim
+
+# Other packages available for manual stowing when needed:
+# stow -vSt $HOME alacritty
+# stow -vSt $HOME astrovim
+# stow -vSt $HOME kitty
+# stow -vSt $HOME skhd
+# stow -vSt $HOME sketchybar
+# stow -vSt $HOME wezterm
+# stow -vSt $HOME yabai
+# stow -vSt $HOME zellij
+# stow -vSt $HOME zsh
 
 # Create local configuration files if they don't exist
 touch $HOME/.config/fish/config.local.fish
 touch $HOME/.config/fish/alias.fish
 
-fish ./macos_config.fish
+# Create .gitconfig.local if it doesn't exist
+if [ ! -f $HOME/.gitconfig.local ]; then
+    echo "Creating .gitconfig.local from template..."
+    cp config/.gitconfig.local.template $HOME/.gitconfig.local
+    echo "Please edit ~/.gitconfig.local to add your personal git information"
+fi
 
-ghide fish/.config/fish/config.local.fish
+fish scripts/macos_config.fish
+
+# Hide local config from git (run with fish since ghide is a fish alias)
+fish -c "ghide fish/.config/fish/config.local.fish"
 
 echo "Dotfiles installation complete!"
 echo "Please restart your terminal or run 'source ~/.config/fish/config.fish' to apply the changes."

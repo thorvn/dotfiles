@@ -28,7 +28,7 @@
 [status]
 	showUntrackedFiles = all
 [include]
-  path = ~/delta/themes.gitconfig
+  path = ~/.config/delta/themes.gitconfig
 [delta]
   features = zebra-dark
   true-color = always

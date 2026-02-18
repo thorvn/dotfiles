@@ -81,9 +81,11 @@ if ! command -v mise &> /dev/null; then
 fi
 
 echo "Checking font..."
-if ! command -v font-iosevka-term-nerd-font &> /dev/null; then
+if ! brew list --cask font-iosevka-term-nerd-font &>/dev/null; then
     echo "Installing font..."
-    brew install font-iosevka-term-nerd-font
+    brew install --cask font-iosevka-term-nerd-font
+else
+    echo "Font is already installed. Skipping."
 fi
 
 echo "Software installation complete!"

@@ -2177,17 +2177,25 @@
                     "identifiers": {
                         "is_keyboard": true,
                         "is_pointing_device": true,
-                        "product_id": 45913,
-                        "vendor_id": 1133
+                        "product_id": 10203,
+                        "vendor_id": 5824
                     },
                     "ignore": false
                 },
                 {
                     "identifiers": {
                         "is_keyboard": true,
+                        "product_id": 65535,
+                        "vendor_id": 1149
+                    },
+                    "ignore": true
+                },
+                {
+                    "identifiers": {
+                        "is_keyboard": true,
                         "is_pointing_device": true,
-                        "product_id": 10203,
-                        "vendor_id": 5824
+                        "product_id": 45913,
+                        "vendor_id": 1133
                     },
                     "ignore": false
                 }

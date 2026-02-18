@@ -1,0 +1,10 @@
+# Local git configuration
+# Copy this file to ~/.gitconfig.local and update with your personal information
+
+[user]
+  name = Your Name
+  email = your.email@example.com
+
+# Optional: Override any other settings from .gitconfig
+# [core]
+#   editor = your-preferred-editor

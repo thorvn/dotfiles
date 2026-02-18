@@ -243,6 +243,14 @@ automatically-unhide-macos-hidden-apps = false
     [[on-window-detected]]
       if.app-id = 'com.apple.TextEdit'
       run = ['layout floating']
+    [[on-window-detected]]
+      if.app-id = 'com.postmanlabs.mac'
+      run = ['layout floating']
+    [[on-window-detected]]
+      if.app-id = 'com.spotify.client'
+      run = ['layout floating']
+
+# run `aerospace list-apps` to show list app ids
 
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes

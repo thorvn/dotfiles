@@ -19,10 +19,11 @@ alias gfa="git fetch --all --prune"
 alias ls='eza --icons'
 alias cd='z'
 alias cat='bat'
-alias cc='claude'
+alias cc='~/.local/bin/claude'
 alias zz='zellij'
 
 ##### RUBY #####
 alias rspec='bundle exec rspec'
+
 alias done='open "raycast://confetti"'
 alias tm='task-master'
