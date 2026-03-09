@@ -4,9 +4,19 @@ set -gx XDG_CONFIG_HOME $HOME/.config
 
 # Add common paths
 fish_add_path /opt/homebrew/bin
+fish_add_path /opt/homebrew/Caskroom
 fish_add_path $HOME/.local/bin
 fish_add_path /opt/homebrew/opt/libpq/bin
 fish_add_path $HOME/.local/bin
+fish_add_path $HOME/.swiftly
+fish_add_path $HOME/.bun/bin
+
+# opencode
+fish_add_path $HOME/.opencode/bin
+
+# Added by Antigravity
+fish_add_path $HOME/.antigravity/antigravity/bin
+
 
 # set -gx STARSHIP_CONFIG $HOME/startship.toml
 
@@ -32,6 +42,8 @@ end
 if test -f ~/.config/fish/config.local.fish
   source ~/.config/fish/config.local.fish
 end
+
+source ~/.config/fish/functions/git_worktree.fish
 
 # pnpm
 set -gx PNPM_HOME $HOME/Library/pnpm

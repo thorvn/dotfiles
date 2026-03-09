@@ -14,6 +14,9 @@ alias ghide="git update-index --assume-unchanged"
 alias gunhide="git update-index --no-assume-unchanged --no-skip-worktree"
 alias ghidels="git ls-files -v|grep '^h'"
 alias gfa="git fetch --all --prune"
+alias gwl="git worktree list"
+alias gwa="git worktree add"
+alias gwr="git worktree remove"
 
 # Software replacement
 alias ls='eza --icons'
