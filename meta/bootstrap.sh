@@ -5,19 +5,19 @@ DOTFILES="$HOME/.dotfiles"
 REPO="https://github.com/thorvn/dotfiles.git"
 
 # ──────────────────────────────────────────────
-# 1. Install git + stow
+# 1. Install git + stow + make
 # ──────────────────────────────────────────────
 install_deps() {
   if [ "$(uname)" = "Darwin" ]; then
     if ! command -v brew &>/dev/null; then
       echo "Installing Homebrew..."
       NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-      eval "$(/opt/homebrew/bin/brew shellenv)"
+      eval "$(brew shellenv)"
     fi
     brew install git stow
   else
     sudo apt-get update -qq
-    sudo apt-get install -y -qq git stow
+    sudo apt-get install -y -qq git stow make
   fi
 }
 
@@ -35,12 +35,12 @@ clone_repo() {
 }
 
 # ──────────────────────────────────────────────
-# 3. Stow everything
+# 3. Clone and run full install
 # ──────────────────────────────────────────────
 install_deps
 clone_repo
 cd "$DOTFILES"
-make all
+bash meta/install.sh
 
 echo ""
 echo "Done. You can switch the remote to SSH later:"

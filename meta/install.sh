@@ -1,45 +1,51 @@
 #!/bin/bash
-
 set -e
 
 DOTFILES="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$DOTFILES"
 
+OS="$(uname)"
+
 echo "Starting dotfiles installation..."
 
-# Check for Homebrew and install if not found
-if ! command -v brew &>/dev/null; then
-    echo "Homebrew not found. Installing Homebrew..."
-    export NONINTERACTIVE=1
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    unset NONINTERACTIVE
-    eval "$(/opt/homebrew/bin/brew shellenv)"
+# ──────────────────────────────────────────────
+# 1. Install dependencies
+# ──────────────────────────────────────────────
+if [ "$OS" = "Darwin" ]; then
+    if ! command -v brew &>/dev/null; then
+        echo "Installing Homebrew..."
+        NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    fi
+    eval "$(brew shellenv)"
+
+    if ! command -v stow &>/dev/null; then
+        brew install stow
+    fi
+
+    echo "Running macOS software installation..."
+    bash meta/software/mac_install.sh
 else
-    echo "Homebrew already installed. Skipping..."
+    if ! command -v stow &>/dev/null; then
+        sudo apt-get update -qq
+        sudo apt-get install -y -qq stow make
+    fi
+
+    echo "Running Linux software installation..."
+    bash meta/scripts/linux_install.sh
 fi
 
-# Ensure Homebrew is in the PATH
-eval "$(/opt/homebrew/bin/brew shellenv)"
-
-# Install GNU Stow
-if ! command -v stow &>/dev/null; then
-    echo "Installing GNU Stow..."
-    brew install stow
-else
-    echo "GNU Stow already installed. Skipping..."
-fi
-
-# Run the software installation script
-echo "Running software installation script..."
-bash meta/software/mac_install.sh
-
-# Symlink dotfiles via Makefile
+# ──────────────────────────────────────────────
+# 2. Symlink dotfiles
+# ──────────────────────────────────────────────
 echo "Symlinking dotfiles..."
 make all
 
-# Create local configuration files if they don't exist
+# ──────────────────────────────────────────────
+# 3. Post-stow setup
+# ──────────────────────────────────────────────
+
+# Create machine-specific fish config (gitignored)
 touch "$HOME/.config/fish/config.local.fish"
-touch "$HOME/.config/fish/alias.fish"
 
 # Create .gitconfig.local if it doesn't exist
 if [ ! -f "$HOME/.gitconfig.local" ]; then
@@ -48,7 +54,10 @@ if [ ! -f "$HOME/.gitconfig.local" ]; then
     echo "Please edit ~/.gitconfig.local to add your personal git information"
 fi
 
-fish meta/scripts/macos_config.fish
+# macOS-specific setup
+if [ "$OS" = "Darwin" ] && command -v fish &>/dev/null; then
+    fish meta/scripts/macos_config.fish
+fi
 
 echo "Dotfiles installation complete!"
-echo "Please restart your terminal or run 'source ~/.config/fish/config.fish' to apply the changes."
+echo "Restart your terminal or run 'source ~/.config/fish/config.fish' to apply changes."
