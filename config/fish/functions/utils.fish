@@ -1,3 +1,3 @@
-function /done
-  open confetti://celebrate
-end
+# function /done
+#   open confetti://celebrate
+# end
