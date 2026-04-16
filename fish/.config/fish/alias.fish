@@ -1,5 +1,6 @@
 alias g="git"
 alias v="nvim"
+alias vi="nvim"
 alias lg="lazygit"
 alias p="pnpm"
 

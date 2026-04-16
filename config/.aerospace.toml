@@ -117,12 +117,12 @@ automatically-unhide-macos-hidden-apps = false
     alt-1 = 'workspace 1'
     alt-2 = 'workspace 2'
     alt-3 = 'workspace 3'
-    alt-4 = 'workspace 4'
-    alt-5 = 'workspace 5'
-    alt-6 = 'workspace 6'
-    alt-7 = 'workspace 7'
-    alt-8 = 'workspace 8'
-    alt-9 = 'workspace 9'
+    alt-a = 'workspace 4'
+    alt-s = 'workspace 5'
+    alt-d = 'workspace 6'
+    # alt-7 = 'workspace 7'
+    # alt-8 = 'workspace 8'
+    # alt-9 = 'workspace 9'
     # alt-0 = 'workspace 0'
     # alt-a = 'workspace A' # In your config, you can drop workspace bindings that you don't need
     # alt-b = 'workspace B'
@@ -151,12 +151,12 @@ automatically-unhide-macos-hidden-apps = false
     alt-shift-1 = 'move-node-to-workspace 1'
     alt-shift-2 = 'move-node-to-workspace 2'
     alt-shift-3 = 'move-node-to-workspace 3'
-    alt-shift-4 = 'move-node-to-workspace 4'
-    alt-shift-5 = 'move-node-to-workspace 5'
-    alt-shift-6 = 'move-node-to-workspace 6'
-    alt-shift-7 = 'move-node-to-workspace 7'
-    alt-shift-8 = 'move-node-to-workspace 8'
-    alt-shift-9 = 'move-node-to-workspace 9'
+    alt-shift-a = 'move-node-to-workspace 4'
+    alt-shift-s = 'move-node-to-workspace 5'
+    alt-shift-d = 'move-node-to-workspace 6'
+    alt-shift-f = 'move-node-to-workspace 7'
+    # alt-shift-8 = 'move-node-to-workspace 8'
+    # alt-shift-9 = 'move-node-to-workspace 9'
     # alt-shift-0 = 'move-node-to-workspace 0'
 
     # alt-shift-a = 'move-node-to-workspace A'
@@ -198,11 +198,14 @@ automatically-unhide-macos-hidden-apps = false
       if.app-id = 'com.mitchellh.ghostty'
       run = ['move-node-to-workspace 2']
     [[on-window-detected]]
-      if.app-id = 'com.tinyspeck.slackmacgap'
-      run = ['move-node-to-workspace 4']
+      if.app-id = 'com.jetbrains.intellij'
+      run = ['move-node-to-workspace 3']
     [[on-window-detected]]
       if.app-id = 'dev.zed.Zed'
       run = ['move-node-to-workspace 3']
+    [[on-window-detected]]
+      if.app-id = 'com.tinyspeck.slackmacgap'
+      run = ['move-node-to-workspace 4']
     # Floating
     [[on-window-detected]]
       if.app-id = 'us.zoom.xos'
@@ -277,9 +280,6 @@ automatically-unhide-macos-hidden-apps = false
   1 = 'main'           # MacBook internal display
   2 = 'main'           # MacBook internal display
   3 = 'main'           # MacBook internal display
-  4 = 'main'           # MacBook internal display
-  5 = 'main'           # MacBook internal display
+  4 = 'secondary'      # External monitor
+  5 = 'secondary'      # External monitor
   6 = 'secondary'      # External monitor
-  7 = 'secondary'      # External monitor
-  8 = 'secondary'      # External monitor
-  9 = 'secondary'      # External monitor

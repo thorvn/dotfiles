@@ -44,6 +44,7 @@ if test -f ~/.config/fish/config.local.fish
 end
 
 source ~/.config/fish/functions/git_worktree.fish
+source ~/.config/fish/functions/utils.fish
 
 # pnpm
 set -gx PNPM_HOME $HOME/Library/pnpm
