@@ -25,13 +25,21 @@ if [ "$OS" = "Darwin" ]; then
     echo "Running macOS software installation..."
     bash meta/software/mac_install.sh
 else
-    if ! command -v stow &>/dev/null; then
-        sudo apt-get update -qq
-        sudo apt-get install -y -qq stow make
+    # Detect distro and install
+    if command -v dnf &>/dev/null; then
+        echo "Running Fedora software installation..."
+        bash meta/software/fedora_install.sh
+    elif command -v apt-get &>/dev/null; then
+        if ! command -v stow &>/dev/null; then
+            sudo apt-get update -qq
+            sudo apt-get install -y -qq stow make
+        fi
+        echo "Running Ubuntu software installation..."
+        bash meta/software/ubuntu_install.sh
+    else
+        echo "Unsupported distro. Install dependencies manually, then run: make all"
+        exit 1
     fi
-
-    echo "Running Linux software installation..."
-    bash meta/scripts/linux_install.sh
 fi
 
 # ──────────────────────────────────────────────

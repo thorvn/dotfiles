@@ -15,9 +15,14 @@ install_deps() {
       eval "$(brew shellenv)"
     fi
     brew install git stow
-  else
+  elif command -v dnf &>/dev/null; then
+    sudo dnf install -y -q git stow make
+  elif command -v apt-get &>/dev/null; then
     sudo apt-get update -qq
     sudo apt-get install -y -qq git stow make
+  else
+    echo "Unsupported package manager. Install git, stow, and make manually."
+    exit 1
   fi
 }
 
