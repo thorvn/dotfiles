@@ -5,7 +5,7 @@ function clean_fish_history --description "Remove noisy and sensitive entries fr
         g gss gls gfa \
         exit clear history true false \
         v nvim vim vi \
-        lg lazygit cc done tm zz zellij cat bat p pnpm \
+        lg lazygit cc done tm zz zellij cat bat \
         which whoami hostname uptime date cal df du top htop
 
     for cmd in $exact_cmds

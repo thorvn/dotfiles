@@ -41,7 +41,6 @@ cli_tools=(
     "ripgrep"
     "eza"
     "bat"
-    "pnpm"
     "git-delta"
     "lazygit"
     "stow"

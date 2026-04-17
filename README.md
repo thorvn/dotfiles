@@ -54,7 +54,7 @@ Fish, Starship, Ghostty, Tmux
 Neovim (LazyVim)
 
 **CLI Tools:**
-ripgrep, eza, bat, fzf, zoxide, lazygit, git-delta, pnpm
+ripgrep, eza, bat, fzf, zoxide, lazygit, git-delta
 
 **macOS:**
 Karabiner-Elements
