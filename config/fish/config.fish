@@ -2,50 +2,47 @@
 set -gx EDITOR nvim
 set -gx XDG_CONFIG_HOME $HOME/.config
 
-# Add common paths
-fish_add_path /opt/homebrew/bin
-fish_add_path /opt/homebrew/Caskroom
-fish_add_path $HOME/.local/bin
-fish_add_path /opt/homebrew/opt/libpq/bin
-fish_add_path $HOME/.local/bin
-fish_add_path $HOME/.swiftly
-fish_add_path $HOME/.bun/bin
+# Add paths only if the directory exists (works on macOS and Linux)
+set -l candidate_paths \
+    /opt/homebrew/bin \
+    /opt/homebrew/Caskroom \
+    /opt/homebrew/opt/libpq/bin \
+    $HOME/.local/bin \
+    $HOME/.swiftly \
+    $HOME/.bun/bin \
+    $HOME/.opencode/bin \
+    $HOME/.antigravity/antigravity/bin
 
-# opencode
-fish_add_path $HOME/.opencode/bin
+for dir in $candidate_paths
+    test -d $dir; and fish_add_path $dir
+end
 
-# Added by Antigravity
-fish_add_path $HOME/.antigravity/antigravity/bin
+# Always-on tools: PATH/env, plus starship (async-prompt subprocesses need fish_prompt defined)
+command -q mise;     and mise activate fish | source
+command -q starship; and starship init fish | source
+test -f $HOME/.cargo/env.fish; and source $HOME/.cargo/env.fish
 
-
-# set -gx STARSHIP_CONFIG $HOME/startship.toml
-
-# Change to home directory in interactive sessions
-# if status is-interactive
-#   cd $HOME
-# end
-
-# Initialize tools
-starship init fish | source
-fzf --fish | source
-zoxide init fish | source
-mise activate fish | source
-direnv hook fish | source
-source "$HOME/.cargo/env.fish"
+# Interactive-only tools (keybindings, hooks)
+if status is-interactive
+    command -q fzf;    and fzf --fish | source
+    command -q zoxide; and zoxide init fish | source
+    command -q direnv; and direnv hook fish | source
+end
 
 # Source aliases if the file exists
 if test -f ~/.config/fish/alias.fish
-  source ~/.config/fish/alias.fish
+    source ~/.config/fish/alias.fish
 end
 
 # Source local config if it exists
 if test -f ~/.config/fish/config.local.fish
-  source ~/.config/fish/config.local.fish
+    source ~/.config/fish/config.local.fish
 end
 
+# Function names don't match filename, so fish's autoloader can't lazy-load them
 source ~/.config/fish/functions/git_worktree.fish
-source ~/.config/fish/functions/utils.fish
 
-# Added by OrbStack: command-line tools and integration
-# This won't be added again if you remove it.
-source ~/.orbstack/shell/init2.fish 2>/dev/null || :
+# Added by OrbStack: command-line tools and integration (macOS only)
+if test (uname) = Darwin; and test -f ~/.orbstack/shell/init2.fish
+    source ~/.orbstack/shell/init2.fish
+end
