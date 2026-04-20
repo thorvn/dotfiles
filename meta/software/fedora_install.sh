@@ -21,10 +21,23 @@ sudo dnf install -y \
   # util-linux-user
 
 # starship
-# if ! command -v starship &>/dev/null; then
-#   echo "Installing starship..."
-#   curl -sS https://starship.rs/install.sh | sh -s -- -y
-# fi
+if ! command -v starship &>/dev/null; then
+  echo "Installing starship..."
+  sudo dnf copr enable atim/starship
+  sudo dnf install starship
+fi
+
+# tera
+sudo dnf install --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
+sudo dnf install zed
+
+sudo dnf copr enable scottames/ghostty
+sudo dnf install ghostty
+
+sudo dnf copr enable jdxcode/mise
+sudo dnf install mise
+
+
 
 # lazygit
 

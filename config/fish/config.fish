@@ -2,20 +2,15 @@
 set -gx EDITOR nvim
 set -gx XDG_CONFIG_HOME $HOME/.config
 
-# Add paths only if the directory exists (works on macOS and Linux)
-set -l candidate_paths \
-    /opt/homebrew/bin \
-    /opt/homebrew/Caskroom \
-    /opt/homebrew/opt/libpq/bin \
-    $HOME/.local/bin \
-    $HOME/.swiftly \
-    $HOME/.bun/bin \
-    $HOME/.opencode/bin \
-    $HOME/.antigravity/antigravity/bin
-
-for dir in $candidate_paths
-    test -d $dir; and fish_add_path $dir
-end
+# Add paths (fish_add_path -m handles duplicates and existence)
+fish_add_path -m /opt/homebrew/bin
+fish_add_path -m /opt/homebrew/Caskroom
+fish_add_path -m /opt/homebrew/opt/libpq/bin
+fish_add_path -m $HOME/.local/bin
+fish_add_path -m $HOME/.swiftly
+fish_add_path -m $HOME/.bun/bin
+fish_add_path -m $HOME/.opencode/bin
+fish_add_path -m $HOME/.antigravity/antigravity/bin
 
 # Always-on tools: PATH/env, plus starship (async-prompt subprocesses need fish_prompt defined)
 command -q mise;     and mise activate fish | source
