@@ -6,14 +6,20 @@
 [user]
   email = votantho93@gmail.com
   name = thorvn
+[init]
+	defaultBranch = main
 [core]
   excludesfile = ~/.gitignore_global
-  editor = vim
+  editor = nvim
   pager = delta
 [interactive]
     diffFilter = delta --color-only
 [rebase]
   autosquash = true
+[diff]
+	algorithm = histogram    # Clearer diffs on moved/edited lines
+	colorMoved = plain       # Highlight moved blocks in diffs
+	mnemonicPrefix = true    # More intuitive refs in diff output
 [merge]
   autosquash = true
   tool=vimdiff
@@ -43,3 +49,14 @@
 	pushInsteadOf = https://github.com/
 [pull]
 	rebase = true
+[commit]
+	verbose = true           # Include diff comment in commit message template
+[column]
+	ui = auto 			     # Output in columns when possible
+[branch]
+	sort = -committerdate    # Sort branches by most recent commit first
+[tag]
+	sort = -version:refname  # Sort version numbers as you would expect
+[rerere]
+	enabled = true           # Record and reuse conflict resolutions
+	autoupdate = true        # Apply stored conflict resolutions automatically

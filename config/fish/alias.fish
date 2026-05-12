@@ -1,6 +1,7 @@
 alias g="git"
 alias v="nvim"
 alias vi="nvim"
+alias vim="nvim"
 alias lg="lazygit"
 
 ############## GIT #####################

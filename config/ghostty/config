@@ -42,18 +42,23 @@
 # # Just for example:
 # resize-overlay-duration = 4s 200ms
 
+# config-file = ?"~/.config/omarchy/current/theme/ghostty.conf"
+
 # appearance
 background-opacity = 1
 background-blur-radius = 40
-font-family = "JetBrainsMono Nerd font Mono"
+font-family = "JetBrainsMono Nerd Font"
+font-style = Regular
 theme = "Catppuccin Frappe"
 font-size = 12
 cursor-style = block
 cursor-style-blink = false
 cursor-invert-fg-bg = true
+
 mouse-hide-while-typing = true
 mouse-scroll-multiplier = 2
 window-padding-y = 0
+gtk-toolbar-style = flat
 
 # macOS-specific settings
 macos-titlebar-style = tabs
@@ -65,5 +70,9 @@ title=
 confirm-close-surface = true
 window-title-font-family = VictorMono NFM Italic
 window-save-state = always
+window-theme = ghostty
+window-padding-x = 14
+window-padding-y = 14
+resize-overlay = never
 
 keybind = shift+enter=text:\n

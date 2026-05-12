@@ -1,0 +1,2 @@
+# setup tmux copy on macOS
+bind -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe "pbcopy"

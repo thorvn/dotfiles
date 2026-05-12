@@ -9,3 +9,7 @@ config/fish/config.local.fish
 
 # Nvim lazy-lock (auto-generated)
 config/nvim/lazy-lock.json
+.DS_Store
+
+config/fish/fish_variables
+config/tmux/plugins/*
