@@ -10,7 +10,7 @@
 	defaultBranch = main
 [core]
   excludesfile = ~/.gitignore_global
-  editor = nvim
+  editor = vim
   pager = delta
 [interactive]
     diffFilter = delta --color-only

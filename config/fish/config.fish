@@ -17,11 +17,15 @@ command -q mise;     and mise activate fish | source
 command -q starship; and starship init fish | source
 test -f $HOME/.cargo/env.fish; and source $HOME/.cargo/env.fish
 
-# Interactive-only tools (keybindings, hooks)
+# mise: full activation is slow on cold start, so only pay that cost in interactive shells.
+# Non-interactive shells (scripts, async-prompt workers) get shims — near-instant and enough for PATH.
 if status is-interactive
+    command -q mise;   and mise activate fish | source
     command -q fzf;    and fzf --fish | source
     command -q zoxide; and zoxide init fish | source
     command -q direnv; and direnv hook fish | source
+else
+    command -q mise;   and mise activate fish --shims | source
 end
 
 # Source aliases if the file exists
@@ -41,3 +45,5 @@ source ~/.config/fish/functions/git_worktree.fish
 if test (uname) = Darwin; and test -f ~/.orbstack/shell/init2.fish
     source ~/.orbstack/shell/init2.fish
 end
+
+command -q starship; and starship init fish | source # THIS MUST BE LAST
