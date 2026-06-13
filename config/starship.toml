@@ -1,6 +1,6 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 add_newline = true
-command_timeout = 200
+command_timeout = 2000
 
 format = """
 $os\
@@ -11,6 +11,10 @@ $git_status\
 """
 
 right_format = "$cmd_duration"
+
+[git_status]
+ahead = ""
+behind = ""
 
 [os]
 disabled = false
