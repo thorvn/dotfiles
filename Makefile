@@ -1,7 +1,7 @@
 STOW := stow -v
 
 # home/ packages (stow -d home -t $HOME <pkg>)
-HOME_PKGS := git ruby tmux
+HOME_PKGS := git ruby
 
 # config/ is a single stow package (stow -t ~/.config config)
 # All subdirs (fish, ghostty, lazygit, nvim, starship, delta) are stowed together.
