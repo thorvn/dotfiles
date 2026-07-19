@@ -4,12 +4,8 @@ node_modules/
 # Karabiner auto-generated backups
 config/karabiner/automatic_backups/
 
-# Fish local config (machine-specific, created by install.sh)
-config/fish/config.local.fish
-
 # Nvim lazy-lock (auto-generated)
 config/nvim/lazy-lock.json
 .DS_Store
 
-config/fish/fish_variables
 config/tmux/plugins/*

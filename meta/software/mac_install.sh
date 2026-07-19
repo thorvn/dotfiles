@@ -3,34 +3,6 @@
 # Exit on error
 set -e
 
-# Function to get sudo password from Keychain
-get_sudo_password() {
-    security find-generic-password -a "$USER" -s "SudoPassword" -w 2>/dev/null
-}
-
-# Function to run command with sudo using stored password
-run_sudo() {
-    local password=$(get_sudo_password)
-    if [ -z "$password" ]; then
-        echo "Sudo password not found in Keychain. Please run store_password.sh first."
-        exit 1
-    fi
-    echo "$password" | sudo -S "$@"
-}
-
-echo "Checking fish shell..."
-if ! command -v fish &> /dev/null; then
-    echo "Installing fish shell..."
-    brew install fish
-    if [ "$SHELL" != "$(which fish)" ]; then
-        echo "Changing default shell to fish..."
-        run_sudo bash -c "echo $(which fish) >> /etc/shells"
-        run_sudo chsh -s $(which fish) $USER
-    fi
-else
-    echo "Fish shell is already installed. Skipping."
-fi
-
 echo "Checking CLI tools..."
 cli_tools=(
     "nvim"

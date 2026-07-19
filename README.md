@@ -43,12 +43,12 @@ make unpkg PKG=git
 
 All stow commands use `-R` (restow) so `make all` is safe to run repeatedly.
 
-`--no-folding` is used for `config/` to prevent stow from symlinking entire directories, so apps can write their own files (fish_variables, lazy-lock.json, etc.) without polluting the repo.
+`--no-folding` is used for `config/` to prevent stow from symlinking entire directories, so apps can write their own files (such as `lazy-lock.json`) without polluting the repo.
 
 ## Components
 
 **Shell & Terminal:**
-Fish, Starship, Ghostty, Tmux
+Zsh, Antidote, Starship, Ghostty, Tmux
 
 **Editor:**
 Neovim (LazyVim)
@@ -64,21 +64,52 @@ mise
 
 ## Local Configuration
 
-These files are created by `install.sh` but not tracked by git:
+The Git file is created by the installer but not tracked by Git. The Zsh
+override is optional:
 
 - `~/.gitconfig.local` — personal git user info (name, email)
-- `~/.config/fish/config.local.fish` — machine-specific fish config
+- `~/.config/zsh/local.zsh` — optional machine-specific Zsh overrides
 
 ## Platform Notes
 
 ### macOS
 - Uses Homebrew for package management
+- Uses the system `/bin/zsh` as the login shell
 - Karabiner config stowed automatically
-- System preferences applied via `meta/scripts/macos_config.fish`
+- System preferences applied via `meta/scripts/macos_config.sh`
 
 ### Linux
-- Uses apt for dependencies
+- Uses apt on Ubuntu and dnf on Fedora; both install Zsh
+- Provisions `en_US.UTF-8` as the login locale and leaves `LC_ALL` unset
 - Install scripts in `meta/software/` and `meta/scripts/`
+
+The installer first checks that Zsh starts without user configuration, then
+selects it as the login shell. Dotfile linking, pinned Antidote/plugin
+provisioning, and a full startup smoke test follow. A failure in those later
+steps returns an error without reverting the login shell.
+
+### Locale and tmux
+
+On macOS, the installer validates that the login session provides
+`LANG=en_US.UTF-8` with `LC_ALL` unset. If validation fails, update Language &
+Region and the terminal's locale settings, then start a new login session before
+rerunning the installer. Locale is intentionally not overridden in `.zshrc`.
+
+A tmux server keeps the environment it had when it started. The installer never
+terminates an existing server, so old sessions remain safe but do not acquire a
+new locale automatically. After saving work and closing any valuable sessions,
+restart tmux yourself:
+
+```bash
+tmux list-sessions
+# Run only after confirming that no valuable session remains:
+tmux kill-server
+tmux
+```
+
+In the new login shell and newly started tmux server, `locale` should report
+`LANG=en_US.UTF-8` and no `LC_ALL`. No tmux `-u` alias or forced UTF-8 option is
+needed.
 
 ## After Bootstrap
 

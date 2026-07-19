@@ -1,12 +1,12 @@
 STOW := stow -v
 
 # home/ packages (stow -d home -t $HOME <pkg>)
-HOME_PKGS := git ruby
+HOME_PKGS := git ruby zsh
 
 # config/ is a single stow package (stow -t ~/.config config)
-# All subdirs (fish, ghostty, lazygit, nvim, starship, delta) are stowed together.
+# All subdirs (ghostty, lazygit, nvim, starship, delta) are stowed together.
 # --no-folding prevents stow from symlinking entire directories,
-# so apps can safely write their own files (fish_variables, lazy-lock.json, etc.)
+# so apps can safely write their own files (lazy-lock.json, etc.)
 
 .PHONY: all home config uninstall pkg unpkg
 
