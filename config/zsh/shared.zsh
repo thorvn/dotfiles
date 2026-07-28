@@ -24,9 +24,4 @@ fi
 alias cc='$HOME/.local/bin/claude'
 alias zz='zellij'
 
-if [[ $OSTYPE == darwin* ]] && (( $+commands[open] )); then
-  alias done='open "raycast://confetti"'
-fi
-
 alias rspec='bundle exec rspec'
-alias tm='task-master'

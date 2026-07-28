@@ -28,6 +28,3 @@ alias zz='zellij'
 
 ##### RUBY #####
 alias rspec='bundle exec rspec'
-
-alias done='open "raycast://confetti"'
-alias tm='task-master'
