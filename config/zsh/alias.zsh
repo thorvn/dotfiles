@@ -1,4 +1,4 @@
-# Shared aliases tracked for use on every machine.
+# Aliases tracked for use on every machine.
 alias g='git'
 alias v='nvim'
 alias vi='nvim'

@@ -9,3 +9,4 @@ config/nvim/lazy-lock.json
 .DS_Store
 
 config/tmux/plugins/*
+config/zsh/local.zsh

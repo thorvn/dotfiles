@@ -1,5 +1,7 @@
 gui:
   sidePanelWidth: 0.2
+  wrapLinesInStagingView: true
+  useHunkModeInStagingView: true
 git:
   pagers:
     - colorArg: always

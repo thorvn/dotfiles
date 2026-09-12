@@ -37,11 +37,11 @@ prepare_home "$interactive_home"
 
 interactive_stdout=$test_root/interactive.stdout
 interactive_stderr=$test_root/interactive.stderr
-env -i HOME="$interactive_home" PATH=/usr/bin:/bin TERM=dumb \
+env -i HOME="$interactive_home" PATH=/usr/bin:/bin TERM=xterm \
   "$zsh_bin" -i -c \
-  'print -r -- "${aliases[g]-missing}|${aliases[greset]-missing}|${aliases[cd]-missing}|${options[AUTO_CD]}|${options[AUTO_PUSHD]}"' \
+  'print -r -- "${aliases[g]-missing}|${aliases[ls]-missing}|${aliases[greset]-missing}|${aliases[cd]-missing}|${options[AUTO_CD]}|${options[AUTO_PUSHD]}"' \
   >"$interactive_stdout" 2>"$interactive_stderr"
-[[ $(<"$interactive_stdout") == 'git|missing|missing|off|off' ]] || \
+[[ $(<"$interactive_stdout") == 'git|eza --icons|missing|missing|off|off' ]] || \
   fail 'interactive startup loads curated aliases and explicit directory behavior'
 [[ $(wc -l <"$interactive_stderr") -eq 1 ]] || fail 'missing plugin artifacts emit one concise warning'
 grep -Fq 'plugins unavailable' "$interactive_stderr" || fail 'missing plugin artifacts identify the degraded behavior'
@@ -62,7 +62,7 @@ printf '%s\n' 'typeset -g LOCAL_CONFIG_LOADED=yes' >"$interactive_home/.config/z
 local_loaded=$(env -i HOME="$interactive_home" PATH=/usr/bin:/bin TERM=dumb \
   "$zsh_bin" -i -c 'print -r -- ${LOCAL_CONFIG_LOADED:-no}' 2>/dev/null)
 [[ $local_loaded == yes ]] || fail 'interactive startup loads optional local configuration'
-pass 'shared and optional local configuration load successfully'
+pass 'aliases and optional local configuration load successfully'
 
 history_home=$test_root/history-home
 prepare_home "$history_home"

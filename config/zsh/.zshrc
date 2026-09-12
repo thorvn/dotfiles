@@ -60,7 +60,7 @@ autoload -Uz compinit
 compinit -d "$zsh_completion_cache/.zcompdump"
 unset zsh_completion_cache
 
-source "$ZDOTDIR/shared.zsh"
+source "$ZDOTDIR/alias.zsh"
 
 if [[ -r $ZDOTDIR/functions/git-worktree.zsh ]]; then
   source "$ZDOTDIR/functions/git-worktree.zsh"
