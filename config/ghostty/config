@@ -48,6 +48,7 @@
 background-opacity = 1
 background-blur-radius = 40
 font-family = "JetBrainsMono Nerd Font"
+font-feature = "+ss02,cv17,zero"
 font-style = Regular
 theme = "Catppuccin Frappe"
 font-size = 12

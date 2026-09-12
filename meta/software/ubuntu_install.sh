@@ -2,7 +2,7 @@
 set -e
 
 echo "Installing Ubuntu packages..."
-sudo apt-get -y install curl fish git neovim fzf eza ripgrep bat tmux stow make build-essential xclip git-delta
+sudo apt-get -y install curl zsh git neovim fzf eza ripgrep bat tmux stow make build-essential xclip git-delta locales
 
 # mise
 if ! command -v mise &>/dev/null; then
@@ -35,12 +35,5 @@ if ! command -v delta &>/dev/null; then
   curl -sS "https://github.com/dandavison/delta/releases/download/${DELTA_VERSION}/git-delta_${DELTA_VERSION}_amd64.deb" -o /tmp/git-delta.deb
   sudo dpkg -i /tmp/git-delta.deb
 fi
-
-# Set fish as default shell
-if [ "$SHELL" != "$(which fish)" ]; then
-  echo "Setting fish as default shell..."
-  sudo chsh -s "$(which fish)" "$USER"
-fi
-
 
 echo "Ubuntu software installation complete!"

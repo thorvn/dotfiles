@@ -47,6 +47,7 @@
   hyperlinks-file-link-format = "vscode://file/{path}:{line}"
 [url "git@github.com:"]
 	pushInsteadOf = https://github.com/
+	insteadOf = https://github.com/
 [pull]
 	rebase = true
 [commit]

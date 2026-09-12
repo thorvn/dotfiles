@@ -5,7 +5,8 @@ echo "Installing Fedora packages..."
 
 # Core tools available in Fedora repos
 sudo dnf install -y \
-  fish \
+  zsh \
+  glibc-langpack-en \
   neovim \
   fzf \
   ripgrep \
@@ -63,12 +64,6 @@ sudo dnf install mise
 #   fc-cache -f
 #   rm /tmp/IosevkaTerm.tar.xz
 # fi
-
-# Set fish as default shell
-if [ "$SHELL" != "$(which fish)" ]; then
-  echo "Setting fish as default shell..."
-  sudo chsh -s "$(which fish)" "$USER"
-fi
 
 # Tmux plugin manager
 if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
